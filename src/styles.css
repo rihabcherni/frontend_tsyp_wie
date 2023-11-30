@@ -201,7 +201,7 @@ h6,
   top: 0;
   left: 0;
   background: url(./assets/img/bg-header-top.png) center center repeat-x;
-  z-index: 1;
+  z-index: 9999;
 }
 
 .header-carousel::after,
