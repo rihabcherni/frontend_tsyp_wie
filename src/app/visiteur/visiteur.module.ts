@@ -17,6 +17,9 @@ import { BecomeAmbassadorComponent } from './components/section/become-ambassado
 import { FeedbacksComponent } from './components/section/feedbacks/feedbacks.component';
 import { HomeComponent } from './components/home/home.component';
 
+
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     VisiteurComponent,
@@ -37,7 +40,9 @@ import { HomeComponent } from './components/home/home.component';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    CarouselModule,
+    BrowserAnimationsModule
   ]
 })
 export class VisiteurModule { }
