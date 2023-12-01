@@ -3,9 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin/admin.component';
 import {  VisiteurComponent } from './visiteur/visiteur.component';
 import { ResponsableEcoleComponent  } from './responsable-ecole/responsable-ecole.component';
-import { LivreurComponent  } from './livreur/livreur.component';
 import { DonateurComponent  } from './donateur/donateur.component';
-import { AuthComponent } from './auth/auth.component';
 import { LoginComponent } from './auth/components/login/login.component';
 import { SignupComponent } from './auth/components/signup/signup.component';
 import { ChangePasswordComponent } from './auth/components/change-password/change-password.component';
@@ -18,9 +16,6 @@ import { GestionUtilisateurComponent } from './admin/components/gestion-utilisat
 import { DashboardResponsableComponent } from './responsable-ecole/components/dashboard-responsable/dashboard-responsable.component';
 import { GestionListeBesoinsEcoleComponent } from './responsable-ecole/components/gestion-liste-besoins-ecole/gestion-liste-besoins-ecole.component';
 import { SchoolNeedsListManagementComponent } from './admin/components/school-needs-list-management/school-needs-list-management.component';
-import { ConfirmeDemandeComponent } from './livreur/components/confirme-demande/confirme-demande.component';
-import { ConsulterDemandesDonsComponent } from './livreur/components/consulter-demandes-dons/consulter-demandes-dons.component';
-import { HistoriqueDonsFaitComponent } from './livreur/components/historique-dons-fait/historique-dons-fait.component';
 import { HistoriqueDonsComponent } from './donateur/components/historique-dons/historique-dons.component';
 import { ListeBesoinsComponent } from './donateur/components/liste-besoins/liste-besoins.component';
 import { AboutUsComponent } from './visiteur/components/about-us/about-us.component';
@@ -36,14 +31,11 @@ const routes: Routes = [
       {path:'our-causes', component: CausesComponent},
       {path:'donation', component: DonationFormComponent},
       {path:'contact-us', component: ContactUsComponent},
+      {path:'login', component:LoginComponent},
+      {path:'signup', component:SignupComponent},
+      {path:'change-password', component:ChangePasswordComponent},
+      {path:'profil', component:ProfilComponent},
   ]},
-
-  { path: 'auth', component: AuthComponent, children:[
-    {path:'login', component:LoginComponent},
-    {path:'signup', component:SignupComponent},
-    {path:'change-password', component:ChangePasswordComponent},
-    {path:'profil', component:ProfilComponent},
-  ] },
   { path: 'admin', component: AdminComponent,children:[
     {path:'', component:DashboardComponent},
     {path:'donor-management', component:GestionDonateurComponent},
@@ -55,11 +47,6 @@ const routes: Routes = [
   { path: 'ambassador', component: ResponsableEcoleComponent ,children:[// responsable-ecole
     {path:'', component:DashboardResponsableComponent},
     {path:'school-needs-management', component:GestionListeBesoinsEcoleComponent},
-  ] },
-  { path: 'livreur', component: LivreurComponent, children:[
-    {path:'confirm-request', component:ConfirmeDemandeComponent},
-    {path:'consult-requests-donations', component:ConsulterDemandesDonsComponent},
-    {path:'list-donations-delivered', component:HistoriqueDonsFaitComponent}, // Liste des dons qu'il a déjà livrés
   ] },
   { path: 'donateur', component: DonateurComponent, children:[
     {path:'History-donations-made', component:HistoriqueDonsComponent},

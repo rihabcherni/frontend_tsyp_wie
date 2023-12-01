@@ -1,58 +1,56 @@
 <div class="container-xxl py-5">
   <div class="container">
       <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-          <h1 class="mb-3">School activities</h1>
-          <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
+        <h1 class="mb-3">School activities</h1>
+        <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
       </div>
-      <div class="row g-4" *ngFor="let cause of causes">
-          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+      <div class="row g-4" >
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s" *ngFor="let cause of causes">
             <div class="activities-item">
                 <div class="bg-light rounded-circle w-75 mx-auto p-3">
-                  <img class="img-fluid rounded-circle" src="{{ cause.img }}" alt="{{ cause.school }}">
+                  <img class="img-fluid rounded-circle img-school" src="{{ cause.img }}" alt="{{ cause.school }}">
                 </div>
                 <div class="bg-light rounded p-4 pt-5 mt-n5">
-                    <a class="d-block text-center h3 mt-3 mb-4" href="#">{{ cause.school }}</a>
+                    <a class="d-block text-center h4 mt-3 mb-4" href="#">{{ cause.school }}</a>
                     <div class="d-flex align-items-center justify-content-between mb-4">
                         <div class="d-flex align-items-center">
                             <img class="rounded-circle flex-shrink-0" src="assets/img/user.jpg" alt="" style="width: 45px; height: 45px;">
                             <div class="ms-3">
                               <b class="text-info mb-1">Our Ambassador:</b>
-                              <h6 class="text-primary mb-1">{{ cause.ambassador }}</h6>
-                              <small>{{ cause.ambassadorRole }}</small>
+                              <h6 class="mb-1"><b class="text-primary mb-1">{{ cause.ambassador }}</b> ({{ cause.ambassadorRole }})</h6>
                             </div>
                         </div>
-                        <span class="bg-primary text-white rounded-pill py-2 px-3" href="">$99</span>
                     </div>
                     <div class="row g-1">
                         <div class="col-4">
                             <div class="border-top border-3 border-primary pt-2">
-                                <h6 class="text-primary mb-1">Students:</h6>
-                                <small>{{ cause.student }}</small>
+                                <h6 class="text-primary mb-1">Students: <small>{{ cause.student }}</small></h6>
+
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="border-top border-3 border-success pt-2">
-                                <h6 class="text-success mb-1">Teachers:</h6>
-                                <small>{{ cause.teacher}}</small>
+                                <h6 class="text-success mb-1">Teachers:<small>{{ cause.teacher}}</small></h6>
+
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="border-top border-3 border-warning pt-2">
-                                <h6 class="text-warning mb-1">Class:</h6>
-                                <small>{{ cause.class }}</small>
+                                <h6 class="text-warning mb-1">Class:<small>{{ cause.class }}</small></h6>
+
                             </div>
                         </div>
                     </div>
-                    <p class="text-center mb-4"><b>Address: </b>{{ cause.adresse }}</p>
+                    <p class="mb-4"><b>Address: </b>{{ cause.adresse }}</p>
                     <div class="text-center">
-                        <span class="badge bg-primary" *ngFor="let b of cause.besoin">{{ b }}</span>
+                      <span class="badge bg-primary p-2 m-1" *ngFor="let b of cause.besoin">{{ b }}</span>
                     </div>
                     <div class="text-center mt-3">
-                        <a href="#" class="btn btn-primary">{{ cause.moreInfo }}</a>
+                        <a href="#" class="bg-primary text-white rounded-pill py-2 px-3">{{ cause.moreInfo }}</a>
                     </div>
                 </div>
             </div>
-        </div>
+          </div>
     </div>
 
       <!-- <div class="row g-4">

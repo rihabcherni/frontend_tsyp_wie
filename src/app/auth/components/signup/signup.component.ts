@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
+  selectedType: string = ''; // Initialize with the default value or handle it according to your needs
 
+  onDropdownItemClick(selectedValue: string): void {
+    this.selectedType = selectedValue;
+  }
 }

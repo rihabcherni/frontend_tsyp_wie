@@ -7,7 +7,6 @@ import { VisiteurModule } from './visiteur/visiteur.module';
 import { AdminModule } from './admin/admin.module';
 import { DonateurModule } from './donateur/donateur.module';
 import { ResponsableEcoleModule } from './responsable-ecole/responsable-ecole.module';
-import { LivreurModule } from './livreur/livreur.module';
 import { AuthModule } from './auth/auth.module';
 import { Page404Component } from './visiteur/page404/page404.component';
 @NgModule({
@@ -22,7 +21,6 @@ import { Page404Component } from './visiteur/page404/page404.component';
     AdminModule,
     DonateurModule,
     ResponsableEcoleModule,
-    LivreurModule,
     AuthModule
   ],
   providers: [],
