@@ -1,1 +1,107 @@
-<p>signup works!</p>
+<div class="container-xxl py-5">
+  <div class="container">
+      <div class="bg-light rounded">
+          <div class="row g-0">
+              <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                  <div class="h-100 d-flex flex-column justify-content-center p-5">
+                      <h1 class="mb-4">REGISTER/DONATE</h1>
+                      <form>
+                          <div class="row g-3">
+                              <div class="col-sm-6">
+                                  <div class="form-floating">
+                                      <input type="text" class="form-control border-0" id="gname" placeholder=" Name">
+                                      <label for="gname">Name</label>
+                                  </div>
+                              </div>
+                              <div class="col-sm-6">
+                                  <div class="form-floating">
+                                      <input type="email" class="form-control border-0" id="gmail" placeholder="Email">
+                                      <label for="gmail">Email</label>
+                                  </div>
+                              </div>
+                              <div class="col-sm-6">
+                                  <div class="form-floating">
+                                      <input type="text" class="form-control border-0" id="phone" placeholder="phone">
+                                      <label for="phone">phone</label>
+                                  </div>
+                              </div>
+                              <div class="col-sm-6">
+                                  <div class="form-floating">
+                                      <input type="text" class="form-control border-0" id="NIC" placeholder="NIC">
+                                      <label for="NIC">NIC</label>
+                                  </div>
+                              </div>
+                              <div class="col-12">
+                                  <div class="form-floating">
+                                    <div class="dropdown">
+                                        <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                          Type
+                                        </button>
+                                        <ul class="dropdown-menu" >
+                                          <li><button (click)="onDropdownItemClick('2')" class="dropdown-item" type="button">donor</button></li>
+                                          <li><button (click)="onDropdownItemClick('1')" class="dropdown-item" type="button">Head of School</button></li>
+                                          <li><button (click)="onDropdownItemClick('3')" class="dropdown-item" type="button">delivery person</button></li>
+                                        </ul>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-sm-6" *ngIf="selectedType === '1'">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control border-0" id="SN" placeholder="SN">
+                                    <label for="NIC">School Name</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6" *ngIf="selectedType === '1'">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control border-0" id="SA" placeholder="SA">
+                                    <label for="NIC">School Adress</label>
+                                </div>
+                            </div>
+                            <div class="col-12" *ngIf="selectedType === '2'">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control border-0" id="A" placeholder="A">
+                                    <label for="A">Amount</label>
+                                </div>
+                            </div>
+                            <div class="col-12" *ngIf="selectedType === '2'">
+                                <div class="form-floating">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="DonationPayment" id="flexRadioDefault9">
+                                        <label class="form-check-label" for="flexRadioDefault9">
+                                            <i class="bi-credit-card custom-icon ms-1"></i>
+                                            Debit or Credit card
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="DonationPayment" id="flexRadioDefault10">
+                                        <label class="form-check-label" for="flexRadioDefault10">
+                                            <i class="bi-paypal custom-icon ms-1"></i>
+                                            Paypal
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12" *ngIf="selectedType === '3'">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control border-0" id="City" placeholder="City">
+                                    <label for="A">City</label>
+                                </div>
+                            </div>
+
+                              <div class="col-12">
+                                  <button class="btn btn-primary w-100 py-3" type="submit">Submit</button>
+                              </div>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+              <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="min-height: 400px;">
+                  <div class="position-relative h-100">
+                      <img class="position-absolute w-100 h-100 rounded" src="assets/img/visiteur/WIEAPPREG.jpg" style="object-fit: cover;">
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

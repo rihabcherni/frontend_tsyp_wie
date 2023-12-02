@@ -8,6 +8,7 @@ import { GestionEcoleComponent } from './components/gestion-ecole/gestion-ecole.
 import { GestionDonateurComponent } from './components/gestion-donateur/gestion-donateur.component';
 import { GestionUtilisateurComponent } from './components/gestion-utilisateur/gestion-utilisateur.component';
 import { SchoolNeedsListManagementComponent } from './components/school-needs-list-management/school-needs-list-management.component';
+import { SideBarComponent } from './components/side-bar/side-bar.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SchoolNeedsListManagementComponent } from './components/school-needs-li
     GestionEcoleComponent,
     GestionDonateurComponent,
     GestionUtilisateurComponent,
-    SchoolNeedsListManagementComponent
+    SchoolNeedsListManagementComponent,
+    SideBarComponent,
   ],
   imports: [
     CommonModule,
