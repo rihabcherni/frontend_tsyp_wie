@@ -1,0 +1,36 @@
+.closed-main {
+  position: absolute;
+  width:92% !important;
+  left: 90px !important;
+  background: var(--white);
+  transition: 0.5s;
+}
+.main {
+  position: absolute;
+  width: calc(100% - 300px);
+  z-index: -1;
+  left: 300px;
+  min-height: 100vh;
+  background: var(--white);
+  transition: 0.5s;
+}
+
+@media (max-width: 991.98px) {
+  .closed-main {
+    position: absolute;
+    width:95% !important;
+    left: 90px !important;
+    background: var(--white);
+    transition: 0.5s;
+  }
+}
+@media (max-width: 480.98px) {
+  .closed-main {
+    position: absolute;
+    width:50% !important;
+    left: 90px !important;
+    background: var(--white);
+    transition: 0.5s;
+  }
+}
+

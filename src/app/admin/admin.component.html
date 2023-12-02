@@ -1,4 +1,8 @@
-<p>admin works!</p>
-<app-side-bar></app-side-bar>
+<app-side-bar [isSidebarOpen]="isSidebarOpen" (toggleSidebar)="toggleSidebar()"></app-side-bar>
 
-<router-outlet></router-outlet>
+<div class="main container" [ngClass]="{'closed-main': !isSidebarOpen}">
+  <router-outlet></router-outlet>
+</div>
+
+
+

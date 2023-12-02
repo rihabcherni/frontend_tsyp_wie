@@ -1,1 +1,36 @@
-side bar
+
+  <div class="navigation" [ngClass]="{'closed': !isSidebarOpen}">
+    <ul>
+      <li style="margin: 10px 0 30px -20px;background-color: rgb(255, 255, 255);">
+        <a [routerLink]="['/admin']" href="admin">
+          <img src="../../assets/img/visiteur/logo2.png" style="height: 68px;" alt="logo" [ngStyle]="{ 'border-radius': '50%' }" />
+          <h3 class="title mauve">WieHope</h3>
+        </a>
+      </li>
+      <li *ngFor="let link of sidebarLinks" [ngClass]="{'active': link.routerLink === activeLink}">
+        <a [routerLink]="[link.routerLink]" (click)="activeLink = link.routerLink">
+          <span class="icon">
+            <i [class]="link.iconClass"></i>
+          </span>
+          <span class="title">{{ link.title }}</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="topbar">
+    <div></div>
+    <div class="toggle-back" (click)="onToggleSidebar()" [ngClass]="{'closed-toggle-back': !isSidebarOpen}">
+      <i class="fas fa-bars material-icons"></i>
+    </div>
+    <div class="search">
+      <label class="search-label">
+        <input type="text" placeholder="Search here">
+        <i class="fas fa-search"></i>
+      </label>
+  </div>
+    <div></div>
+    <div class="user">
+        <img src="../../assets/img/customer01.jpg" alt="">
+    </div>
+  </div>

@@ -28,19 +28,19 @@ export class HeaderComponent {
     slides = [
       {
         id: "1",
-        tiltle:"The Best Kindergarten School For Your Child",
+        tiltle:"Transform a student's life Donate and make an impact",
         img: "assets/img/carousel-1.jpg",
-        btn1: "Learn More",
-        btn2: "Our Classes",
-        text:"Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr."
+        btn1: "About Us",
+        btn2: "Our Causes",
+
       },
       {
         id: "2",
-        tiltle:"The Best Kindergarten School For Your Child",
-        img: "assets/img/carousel-2.jpg",
-        btn1: "Learn More",
-        btn2: "Our Classes",
-        text:"Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr."
+        tiltle:"Lifting the dreams of poor children is like planting seeds",
+        img: "assets/img/carousel-3.png",
+        btn1: "About Us",
+        btn2: "Our Causes",
+        text:"they deserve the chance to grow into something beautiful"
       },
     ];
 }

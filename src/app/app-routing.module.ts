@@ -34,15 +34,17 @@ const routes: Routes = [
       {path:'login', component:LoginComponent},
       {path:'signup', component:SignupComponent},
       {path:'change-password', component:ChangePasswordComponent},
-      {path:'profil', component:ProfilComponent},
   ]},
   { path: 'admin', component: AdminComponent,children:[
     {path:'', component:DashboardComponent},
+    {path:'schools', component:GestionEcoleComponent},
+    {path:'users', component:GestionUtilisateurComponent},
+    {path:'profil', component:ProfilComponent},
+
     {path:'donor-management', component:GestionDonateurComponent},
     {path:'ambassador-management', component:GestionResponsableComponent},
-    {path:'school-management', component:GestionEcoleComponent},
     {path:'school-needs-list-management', component:SchoolNeedsListManagementComponent},
-    {path:'users-management', component:GestionUtilisateurComponent},
+
   ] },
   { path: 'ambassador', component: ResponsableEcoleComponent ,children:[// responsable-ecole
     {path:'', component:DashboardResponsableComponent},
