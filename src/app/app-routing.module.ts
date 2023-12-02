@@ -49,10 +49,12 @@ const routes: Routes = [
   { path: 'ambassador', component: ResponsableEcoleComponent ,children:[// responsable-ecole
     {path:'', component:DashboardResponsableComponent},
     {path:'school-needs-management', component:GestionListeBesoinsEcoleComponent},
+    {path:'profil', component:ProfilComponent},
   ] },
-  { path: 'donateur', component: DonateurComponent, children:[
+  { path: 'donor', component: DonateurComponent, children:[
     {path:'History-donations-made', component:HistoriqueDonsComponent},
-    {path:'school-needs-list', component:ListeBesoinsComponent},
+    {path:'schools-needs', component:ListeBesoinsComponent},
+    {path:'profil', component:ProfilComponent},
   ] },
   { path: '**', redirectTo: '/not-found' },
   { path: 'not-found', component: Page404Component },

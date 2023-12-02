@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./donateur.component.css']
 })
 export class DonateurComponent {
-
+  isSidebarOpen: boolean = true;
+  toggleSidebar() {
+    this.isSidebarOpen = !this.isSidebarOpen;
+  }
 }

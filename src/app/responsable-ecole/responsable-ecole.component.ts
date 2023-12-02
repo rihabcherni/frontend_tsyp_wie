@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./responsable-ecole.component.css']
 })
 export class ResponsableEcoleComponent {
-
+  isSidebarOpen: boolean = true;
+  toggleSidebar() {
+    this.isSidebarOpen = !this.isSidebarOpen;
+  }
 }
