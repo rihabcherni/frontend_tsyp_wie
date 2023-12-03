@@ -8,6 +8,7 @@ import { LoginComponent } from './auth/components/login/login.component';
 import { ChangePasswordComponent } from './auth/components/change-password/change-password.component';
 import { ProfilComponent } from './auth/components/profil/profil.component';
 import { DashboardComponent } from './admin/components/dashboard/dashboard.component';
+import { DashboardComponent as  DashboardComponentDonor  } from './donateur/components/dashboard/dashboard.component';
 import { GestionDonateurComponent } from './admin/components/gestion-donateur/gestion-donateur.component';
 import { GestionResponsableComponent } from './admin/components/gestion-responsable/gestion-responsable.component';
 import { GestionEcoleComponent } from './admin/components/gestion-ecole/gestion-ecole.component';
@@ -56,6 +57,7 @@ const routes: Routes = [
     {path:'profil', component:ProfilComponent},
   ] },
   { path: 'donor', component: DonateurComponent, children:[
+    {path:'', component:DashboardComponentDonor},
     {path:'History-donations-made', component:HistoriqueDonsComponent},
     {path:'schools-needs', component:ListeBesoinsComponent},
     {path:'profil', component:ProfilComponent},
