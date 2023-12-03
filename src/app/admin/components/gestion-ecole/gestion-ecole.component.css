@@ -1,0 +1,55 @@
+.card:hover{
+  background-color: transparent;
+}
+.cardb{
+  padding: 1rem 1rem;
+}
+
+.cardHeader{
+  display: flex;
+  gap: 1rem;
+
+}
+.title{
+  margin: 1rem 0;
+}
+.header{
+  display: flex;
+  flex-direction: row;
+}
+.acceptbtn{
+  background-color: #00a297;
+  cursor: pointer;
+}
+.rejectbtn{
+  background-color: red;
+  cursor: pointer;
+}
+.btninfo{
+  background-color: #7b4fc1;
+  color: rgb(255, 255, 255);
+}
+.schoolname,.schoollocation{
+  display: flex;
+  flex-direction: row;
+}
+.cardtitle{
+  font-size: 1.25rem;
+  font-family: "Inter",sans-serif;
+  line-height: 1.2;
+  color: #4f1f9c;
+}
+
+.btn:focus{
+  box-shadow: none;
+}
+
+.back{
+    position: relative;
+    min-height: 500px;
+    margin: 10px 0;
+    padding: 20px;
+    background: var(--white);
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+}

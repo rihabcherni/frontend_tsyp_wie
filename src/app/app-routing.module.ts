@@ -6,7 +6,6 @@ import { ResponsableEcoleComponent  } from './responsable-ecole/responsable-ecol
 import { DonateurComponent  } from './donateur/donateur.component';
 import { LoginComponent } from './auth/components/login/login.component';
 import { ChangePasswordComponent } from './auth/components/change-password/change-password.component';
-import { ProfilComponent } from './auth/components/profil/profil.component';
 import { DashboardComponent } from './admin/components/dashboard/dashboard.component';
 import { DashboardComponent as  DashboardComponentDonor  } from './donateur/components/dashboard/dashboard.component';
 import { GestionDonateurComponent } from './admin/components/gestion-donateur/gestion-donateur.component';
@@ -27,6 +26,9 @@ import { HomeComponent } from './visiteur/components/home/home.component';
 import { BeDonorComponent } from './auth/components/be-donor/be-donor.component';
 import { BeAmbassadorComponent } from './auth/components/be-ambassador/be-ambassador.component';
 import { DonationsComponent } from './admin/components/donations/donations.component';
+import { ProfilAdminComponent } from './auth/components/profil-admin/profil-admin.component';
+import { ProfilDonorComponent } from './auth/components/profil-donor/profil-donor.component';
+import { ProfilAmbassadorComponent } from './auth/components/profil-ambassador/profil-ambassador.component';
 const routes: Routes = [
   { path: '', component: VisiteurComponent, children:[
       {path:'', component: HomeComponent},
@@ -43,7 +45,7 @@ const routes: Routes = [
     {path:'', component:DashboardComponent},
     {path:'schools', component:GestionEcoleComponent},
     {path:'users', component:GestionUtilisateurComponent},
-    {path:'profil', component:ProfilComponent},
+    {path:'profil', component:ProfilAdminComponent},
     {path:'donation',component:DonationsComponent},
 
     {path:'donor-management', component:GestionDonateurComponent},
@@ -54,13 +56,13 @@ const routes: Routes = [
   { path: 'ambassador', component: ResponsableEcoleComponent ,children:[// responsable-ecole
     {path:'', component:DashboardResponsableComponent},
     {path:'school-needs-management', component:GestionListeBesoinsEcoleComponent},
-    {path:'profil', component:ProfilComponent},
+    {path:'profil', component:ProfilAmbassadorComponent},
   ] },
   { path: 'donor', component: DonateurComponent, children:[
     {path:'', component:DashboardComponentDonor},
     {path:'History-donations-made', component:HistoriqueDonsComponent},
     {path:'schools-needs', component:ListeBesoinsComponent},
-    {path:'profil', component:ProfilComponent},
+    {path:'profil', component:ProfilDonorComponent},
   ] },
   { path: '**', redirectTo: '/not-found' },
   { path: 'not-found', component: Page404Component },

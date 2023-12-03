@@ -1,198 +1,127 @@
 <div>
-  <!-- ======================= Cards ================== -->
-  <!-- <div class="cardBox">
-      <div class="card">
-          <div>
-              <div class="numbers">15</div>
-              <div class="cardName">Schools </div>
+<!-- =========================== cards ======================= -->
+  <div class="cardsBox">
+    <div class="cardDash">
+          <div class="cardbody">
+            <h4 style="color:rgb(105, 186, 191);"> 10  <i class="fas fa-school" style="margin-left: 180px;"></i></h4>
+            <p>School</p>
           </div>
-
-          <div class="iconBx">
-            <i class="fas fa-school"></i>
+    </div>
+    <div class="cardDash">
+          <div class="cardbody">
+            <h4 style="color:#fa7e71;"> 15  <i class="fas fa-users" style="margin-left: 180px;"></i></h4>
+            <p>Ambassador</p>
           </div>
-      </div>
-
-      <div class="card ">
-          <div>
-              <div class="numbers">15</div>
-              <div class="cardName">Ambassador</div>
-          </div>
-
-          <div class="iconBx">
-              <ion-icon name="cart-outline"></ion-icon>
-          </div>
-      </div>
-
-      <div class="card">
-          <div>
-              <div class="numbers">10</div>
-              <div class="cardName">volunteer</div>
-          </div>
-
-          <div class="iconBx">
-              <ion-icon name="chatbubbles-outline"></ion-icon>
-          </div>
-      </div>
-
-      <div class="card">
-          <div>
-              <div class="numbers">20</div>
-              <div class="cardName">Donation</div>
-          </div>
-
-          <div class="iconBx">
-              <ion-icon name="cash-outline"></ion-icon>
-          </div>
-      </div>
-  </div> -->
-
-  <div class="row">
-    <div class="col-md-3">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="card-title" style="color:rgb(105, 186, 191);">
-              10
-              <i class="fas fa-school" style="margin-left: 180px;"></i>
-            </h4>
-            <p class="card-text" style="color:gray; ">School</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3">
-          <div class="card">
-            <div class="card-body">
-              <h4 class="card-title" style="color:#fa7e71; ">15<i class="fas fa-users" style="margin-left: 180px;"></i></h4>
-              <p class="card-text" style="color:gray;">Ambassador</p>
+    </div>
+    <div class="cardDash">
+            <div class="cardbody">
+              <h4 style="color:rgb(124, 124, 255);">20<i class="fas fa-users" style="margin-left: 180px;"></i></h4>
+              <p>Donor</p>
             </div>
-
-
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card">
-            <div class="card-body">
-              <h4 class="card-title" style="color:rgb(124, 124, 255);">20<i class="fas fa-users" style="margin-left: 180px;"></i></h4>
-              <p class="card-text" style="color:gray;">Donor</p>
+    </div>
+    <div class="cardDash">
+            <div class="cardbody">
+              <h4 style="color:#6fd091;">30<i class="fas fa-hand-holding-usd"  style="margin-left: 180px;"></i></h4>
+              <p>Donation</p>
             </div>
-
-
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="card">
-            <div class="card-body">
-              <h4 class="card-title" style="color:#6fd091;">30<i class="fas fa-hand-holding-usd"  style="margin-left: 180px;"></i></h4>
-              <p class="card-text" style="color:gray;">Donation</p>
-            </div>
-
-
-          </div>
-        </div>
-
-</div>
-
-<!-- =========================== charts ======================= -->
+    </div>
+  </div>
 
 
   <!-- ================ Order Details List ================= -->
-  <div class=" details row ">
-         <div class="col-md-8">
-              <div class="row">
-                <div class="col-md-6">
-                  <div id="BarChart"  >
-                    <canvas id="statisticsBarChart"></canvas>
-                  </div>
+  <div class="details">
+<!-- =========================== charts ======================= -->
+    <div>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <div id="BarChart"  >
+            <canvas id="statisticsBarChart"></canvas>
+          </div>
 
-                </div>
-                <div class="col-md-6" >
-                  <div id="LineChart" >
-                      <canvas id="statisticsLineChart" ></canvas>
+        </div>
+        <div class="col-md-6" >
+          <div id="LineChart" >
+              <canvas id="statisticsLineChart" ></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class=" recentOrders">
+          <div class="cardHeader">
+              <h2>Latest Donations</h2>
+              <a href="#" class="btn">View All</a>
+          </div>
+          <table>
+              <thead>
+                  <tr>
+                      <td>School</td>
+                      <td>Donation</td>
+                      <td>Donor</td>
 
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>Star Refrigerator</td>
+                      <td>$1200</td>
+                      <td>Paid</td>
 
-                  </div>
+                  </tr>
 
-                </div>
-              </div>
-              <div class="row">
-              <div class=" recentOrders">
-                  <div class="cardHeader">
-                      <h2>Latest Donations</h2>
-                      <a href="#" class="btn">View All</a>
-                  </div>
+                  <tr>
+                      <td>Dell Laptop</td>
+                      <td>$110</td>
+                      <td>Due</td>
 
-                  <table>
-                      <thead>
-                          <tr>
-                              <td>School</td>
-                              <td>Donation</td>
-                              <td>Donor</td>
+                  </tr>
 
-                          </tr>
-                      </thead>
+                  <tr>
+                      <td>Apple Watch</td>
+                      <td>$1200</td>
+                      <td>Paid</td>
 
-                      <tbody>
-                          <tr>
-                              <td>Star Refrigerator</td>
-                              <td>$1200</td>
-                              <td>Paid</td>
+                  </tr>
 
-                          </tr>
+                  <tr>
+                      <td>Addidas Shoes</td>
+                      <td>$620</td>
+                      <td>Due</td>
 
-                          <tr>
-                              <td>Dell Laptop</td>
-                              <td>$110</td>
-                              <td>Due</td>
+                  </tr>
 
-                          </tr>
+                  <tr>
+                      <td>Star Refrigerator</td>
+                      <td>$1200</td>
+                      <td>Paid</td>
 
-                          <tr>
-                              <td>Apple Watch</td>
-                              <td>$1200</td>
-                              <td>Paid</td>
+                  </tr>
 
-                          </tr>
+                  <tr>
+                      <td>Dell Laptop</td>
+                      <td>$110</td>
+                      <td>Due</td>
 
-                          <tr>
-                              <td>Addidas Shoes</td>
-                              <td>$620</td>
-                              <td>Due</td>
+                  </tr>
 
-                          </tr>
+                  <tr>
+                      <td>Apple Watch</td>
+                      <td>$1200</td>
+                      <td>Paid</td>
 
-                          <tr>
-                              <td>Star Refrigerator</td>
-                              <td>$1200</td>
-                              <td>Paid</td>
+                  </tr>
 
-                          </tr>
+                  <tr>
+                      <td>Addidas Shoes</td>
+                      <td>$620</td>
+                      <td>Due</td>
 
-                          <tr>
-                              <td>Dell Laptop</td>
-                              <td>$110</td>
-                              <td>Due</td>
-
-                          </tr>
-
-                          <tr>
-                              <td>Apple Watch</td>
-                              <td>$1200</td>
-                              <td>Paid</td>
-
-                          </tr>
-
-                          <tr>
-                              <td>Addidas Shoes</td>
-                              <td>$620</td>
-                              <td>Due</td>
-
-                          </tr>
-                      </tbody>
-                  </table>
-              </div>
-              </div>
-         </div>
-         <div class="col-md-4">
+                  </tr>
+              </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+         <div>
           <div class=" recentCustomers">
               <div class="cardHeader">
                   <h2>Recent Donor</h2>
@@ -210,7 +139,7 @@
 
                   <tr>
                       <td width="60px">
-                          <div class="imgBx"><img src="../../assets/img/customer01.jpg" alt=""></div>
+                          <div class="imgBx"><img src="../../assets/img/visiteur/customer01.jpg" alt=""></div>
                       </td>
                       <td>
                           <h4>Amit <br> <span>India</span></h4>
@@ -228,7 +157,7 @@
 
                   <tr>
                       <td width="60px">
-                          <div class="imgBx"><img src="../../assets/img/customer01.jpg" alt=""></div>
+                          <div class="imgBx"><img src="../../assets/img/visiteur/customer01.jpg" alt=""></div>
                       </td>
                       <td>
                           <h4>Amit <br> <span>India</span></h4>
@@ -246,7 +175,7 @@
 
                   <tr>
                       <td width="60px">
-                          <div class="imgBx"><img src="../../assets/img/customer01.jpg" alt=""></div>
+                          <div class="imgBx"><img src="../../assets/img/visiteur/customer01.jpg" alt=""></div>
                       </td>
                       <td>
                           <h4>Amit <br> <span>India</span></h4>
@@ -255,7 +184,7 @@
 
                   <tr>
                       <td width="60px">
-                          <div class="imgBx"><img src="../../assets/img/customer01.jpg" alt=""></div>
+                          <div class="imgBx"><img src="../../assets/img/visiteur/customer01.jpg" alt=""></div>
                       </td>
                       <td>
                           <h4>David <br> <span>Italy</span></h4>
