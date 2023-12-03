@@ -1,6 +1,8 @@
+import { Component, Renderer2, ElementRef ,OnInit,ViewChild} from '@angular/core';
 import { Chart, registerables } from 'chart.js';
+
 Chart.register(...registerables);
-import { Component, Renderer2, ElementRef ,OnInit} from '@angular/core';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -8,49 +10,46 @@ import { Component, Renderer2, ElementRef ,OnInit} from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
-  // constructor() { }
-  // // ngOnInit() {
-  // //   // Line Chart
-  // //   const lineChartData = {
-  // //     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Juin','Juill','Aut','Sep','Oct','Nov','Dec'],
-  // //     datasets: [{
-  // //       label: 'Stock',
-  // //       data: [50, 40, 55, 65, 60, 55,65,70,50,47,60,85,70],
-  // //       borderColor: 'blue',
-  // //       fill: false,
-  // //     }]
-  // //   };
-
-  // //   new Chart('statisticsLineChart', {
-  // //     type: 'line',
-  // //     data: lineChartData,
-  // //     options: {}
-  // //   });
 
 
-  // //   const barChartData = {
-  // //     labels: ['Janv', 'Feb', 'Mar', 'Avl', 'May','Juin','Juill','Aut','Sep','Oct','Nov','Dec'],
-  // //     datasets: [{
-  // //       label: 'Achat',
-  // //       data: [50, 20, 55, 30, 50, 35, 40, 15, 45, 50, 45, 55],
-  // //       backgroundColor: '#50CB78',
-  // //       borderColor: 'white',
-  // //       borderWidth: 1
-  // //     }, {
-  // //       label: 'Vente',
-  // //       data: [40, 15, 50, 25, 45, 27, 30, 10, 40, 35, 45, 50],
-  // //       backgroundColor: '#ED2939',
-  // //       borderColor: 'white',
-  // //       borderWidth: 1
-  // //     }]
-  // //   };
+  ngOnInit() {
+    // Line Chart
+    const lineChartData = {
+      labels: ['2015', '2016', '2017', '2018', '2019', '2020','2021','2022','2023'],
+      datasets: [{
 
-  // //   new Chart('statisticsBarChart', {
-  // //     type: 'bar',
-  // //     data: barChartData,
-  // //     options: {}
-  // //   });
-  // // }
+        data: [50, 60, 55, 65, 70, 65,75,80,70,90],
+        backgroundColor:'#fa7e71',
+        borderColor: '#fa7e71',
+        fill: false,
+      }]
+    };
 
-  
+    new Chart('statisticsLineChart', {
+      type: 'line',
+      data: lineChartData,
+      options: {}
+    });
+
+
+    const barChartData = {
+      labels: ['2015', '2016', '2017', '2018', '2019', '2020','2021','2022','2023'],
+      datasets: [{
+        // label
+        data: [8,11,13,15,20, 18,22,25,20,21,24,25,28,30,32],
+        backgroundColor: '#01b5b2',
+        borderColor: 'white',
+        borderWidth: 1,
+
+      }, ]
+    };
+
+    new Chart('statisticsBarChart', {
+      type: 'bar',
+      data: barChartData,
+      options: {}
+    });
+  }
+
+
 }

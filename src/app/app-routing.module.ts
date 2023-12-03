@@ -25,6 +25,7 @@ import { Page404Component } from './visiteur/page404/page404.component';
 import { HomeComponent } from './visiteur/components/home/home.component';
 import { BeDonorComponent } from './auth/components/be-donor/be-donor.component';
 import { BeAmbassadorComponent } from './auth/components/be-ambassador/be-ambassador.component';
+import { DonationsComponent } from './admin/components/donations/donations.component';
 const routes: Routes = [
   { path: '', component: VisiteurComponent, children:[
       {path:'', component: HomeComponent},
@@ -42,6 +43,7 @@ const routes: Routes = [
     {path:'schools', component:GestionEcoleComponent},
     {path:'users', component:GestionUtilisateurComponent},
     {path:'profil', component:ProfilComponent},
+    {path:'donation',component:DonationsComponent},
 
     {path:'donor-management', component:GestionDonateurComponent},
     {path:'ambassador-management', component:GestionResponsableComponent},

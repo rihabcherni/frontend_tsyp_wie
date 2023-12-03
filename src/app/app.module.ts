@@ -9,6 +9,8 @@ import { DonateurModule } from './donateur/donateur.module';
 import { ResponsableEcoleModule } from './responsable-ecole/responsable-ecole.module';
 import { AuthModule } from './auth/auth.module';
 import { Page404Component } from './visiteur/page404/page404.component';
+import 'bootstrap';
+
 @NgModule({
   declarations: [
     AppComponent,

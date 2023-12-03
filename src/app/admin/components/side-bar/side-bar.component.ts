@@ -10,8 +10,12 @@ import { Input, Output, EventEmitter } from '@angular/core';
 export class SideBarComponent {
   sidebarLinks = [
     { routerLink: '/admin', iconClass: 'fas fa-tachometer-alt', title: 'Dashboard' },
-    { routerLink: '/admin/users', iconClass: 'fas fa-users-cog', title: 'Users' },
+
     { routerLink: '/admin/schools', iconClass: 'fas fa-school', title: 'Schools' },
+
+    { routerLink: '/admin/donation', iconClass:"fas fa-hand-holding-usd" , title: 'Donations' },
+
+    { routerLink: '/admin/users', iconClass: 'fas fa-users-cog', title: 'Donors' },
     { routerLink: '/admin/profil', iconClass: 'fas fa-user-circle', title: 'Profil' },
     { routerLink: '/admin/sign-out', iconClass: 'fas fa-sign-out-alt', title: 'Sign Out' }
   ];
