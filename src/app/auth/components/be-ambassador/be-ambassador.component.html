@@ -1,0 +1,146 @@
+<div class="container-xxl py-5">
+  <div class="container">
+      <div class="rounded">
+          <div class="row g-5 align-items-center">
+              <div class="col-lg-6 wow fadeIn bg-light rounded" data-wow-delay="0.1s">
+                  <div class="h-100 d-flex flex-column justify-content-center p-5">
+                    <h2 class="mb-4 text-uppercase">Register to be an ambassador</h2>
+                    <form>
+                          <div class="row g-3">
+                              <div class="col-sm-6">
+                                  <div class="form-floating">
+                                      <input type="text" class="form-control border-0" id="name" placeholder="Name">
+                                      <label for="name">Name</label>
+                                  </div>
+                              </div>
+                              <div class="col-sm-6">
+                                  <div class="form-floating">
+                                      <input type="email" class="form-control border-0" id="gmail" placeholder="Email">
+                                      <label for="gmail">Email</label>
+                                  </div>
+                              </div>
+
+                              <div class="col-sm-6">
+                                  <div class="form-floating">
+                                      <input type="text" class="form-control border-0" id="phone" placeholder="phone">
+                                      <label for="phone">Phone</label>
+                                  </div>
+                              </div>
+
+                              <div class="col-sm-6">
+                                  <div class="form-floating">
+                                      <input type="text" class="form-control border-0" id="NIC" placeholder="National Identification Card">
+                                      <label for="NIC">National Identification Card</label>
+                                  </div>
+                              </div>
+
+
+                              <div class="col-sm-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control border-0" id="address" placeholder="address">
+                                    <label for="address">Address</label>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                              <div class="form-floating " >
+                                <select id="userType" name="userType" >
+                                  <option value="" selected disabled>Choose a role </option>
+                                  <option value="director">Director</option>
+                                  <option value="teacher">Teacher</option>
+                                    <option value="staff">Staff</option>
+                                </select>
+
+                              </div>
+                          </div>
+                            <div class="line-container">
+                                <div class="line"></div>
+                                <div class="word">School Details</div>
+                                <div class="line"></div>
+                            </div>
+
+                              <div class="col-sm-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control border-0" id="schoolName" placeholder="School Name">
+                                    <label for="schoolName">School Name</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control border-0" id="schoolAdress" placeholder="School Adress">
+                                    <label for="schoolAdress">School Adress</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <div class="form-floating " >
+                                <select id="regionSelect" name="region">
+                                  <option value="" selected disabled>City</option>
+                                  <option value="ariana">Ariana</option>
+                                  <option value="beja">Béja</option>
+                                  <option value="benarous">Ben Arous</option>
+                                  <option value="bizerte">Bizerte</option>
+                                  <option value="gabes">Gabès</option>
+                                  <option value="gafsa">Gafsa</option>
+                                  <option value="jendouba">Jendouba</option>
+                                  <option value="kairouan">Kairouan</option>
+                                  <option value="kasserine">Kasserine</option>
+                                  <option value="kebili">Kebili</option>
+                                  <option value="kef">Le Kef</option>
+                                  <option value="mahdia">Mahdia</option>
+                                  <option value="manouba">La Manouba</option>
+                                  <option value="medenine">Médenine</option>
+                                  <option value="monastir">Monastir</option>
+                                  <option value="nabeul">Nabeul</option>
+                                  <option value="sfax">Sfax</option>
+                                  <option value="sidi bouzid">Sidi Bouzid</option>
+                                  <option value="siliana">Siliana</option>
+                                  <option value="sousse">Sousse</option>
+                                  <option value="tataouine">Tataouine</option>
+                                  <option value="tozeur">Tozeur</option>
+                                  <option value="tunis">Tunis</option>
+                                  <option value="zaghouan">Zaghouan</option>
+                                </select>
+                              </div>
+                          </div>
+
+                          <div class="col-sm-6">
+                            <div class="form-floating " >
+                              <select id="regionSelect" name="region">
+                                <option value="" selected disabled>Education Level</option>
+                                <option value="PrimarySchool ">Primary School </option>
+                                <option value="MiddleSchool ">MiddleSchool</option>
+                                <option value="HighSchool">High School</option>
+                                <option value="University">University</option>
+                                <option value="Other">Other</option>
+                              </select>
+                            </div>
+                          </div>
+
+                          <div class="col-sm-6">
+                            <div class="form-floating">
+                                <input type="number" class="form-control border-0" id="studentNumber" placeholder="Students Number">
+                                <label for="studentNumber">Students Number</label>
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="form-floating">
+                                <input type="number" class="form-control border-0" id="teacherNumber" placeholder="Teachers Number">
+                                <label for="TeacherNumber">Teachers Number</label>
+                            </div>
+                          </div>
+                          <div class="col-12">
+                            <a [routerLink]="['/login']"><button class="btn btn-primary w-100 py-3" type="submit">Submit</button></a>
+                          </div>
+                      </div>
+                    </form>
+                  </div>
+              </div>
+              <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="max-height: 400px;">
+                  <div class="position-relative h-100">
+                      <img class=" w-100 h-100 rounded" src="assets/img/visiteur/ambassador.PNG">
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

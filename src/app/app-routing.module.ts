@@ -5,7 +5,6 @@ import {  VisiteurComponent } from './visiteur/visiteur.component';
 import { ResponsableEcoleComponent  } from './responsable-ecole/responsable-ecole.component';
 import { DonateurComponent  } from './donateur/donateur.component';
 import { LoginComponent } from './auth/components/login/login.component';
-import { SignupComponent } from './auth/components/signup/signup.component';
 import { ChangePasswordComponent } from './auth/components/change-password/change-password.component';
 import { ProfilComponent } from './auth/components/profil/profil.component';
 import { DashboardComponent } from './admin/components/dashboard/dashboard.component';
@@ -24,6 +23,8 @@ import { DonationFormComponent } from './visiteur/components/donation-form/donat
 import { CausesComponent } from './visiteur/components/causes/causes.component';
 import { Page404Component } from './visiteur/page404/page404.component';
 import { HomeComponent } from './visiteur/components/home/home.component';
+import { BeDonorComponent } from './auth/components/be-donor/be-donor.component';
+import { BeAmbassadorComponent } from './auth/components/be-ambassador/be-ambassador.component';
 const routes: Routes = [
   { path: '', component: VisiteurComponent, children:[
       {path:'', component: HomeComponent},
@@ -32,7 +33,8 @@ const routes: Routes = [
       {path:'donation', component: DonationFormComponent},
       {path:'contact-us', component: ContactUsComponent},
       {path:'login', component:LoginComponent},
-      {path:'signup', component:SignupComponent},
+      {path:'be-donor', component:BeDonorComponent},
+      {path:'be-ambassador', component:BeAmbassadorComponent},
       {path:'change-password', component:ChangePasswordComponent},
   ]},
   { path: 'admin', component: AdminComponent,children:[

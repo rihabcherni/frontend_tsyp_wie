@@ -10,4 +10,10 @@ export class DonateurComponent {
   toggleSidebar() {
     this.isSidebarOpen = !this.isSidebarOpen;
   }
+  showSpinner: boolean = true;
+  ngOnInit() {
+    setTimeout(() => {
+      this.showSpinner = false;
+    }, 1500);
+  }
 }

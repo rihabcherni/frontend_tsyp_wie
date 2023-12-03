@@ -29,15 +29,14 @@ export class HeaderComponent {
       {
         id: "1",
         tiltle:"Transform a student's life Donate and make an impact",
-        img: "assets/img/carousel-1.jpg",
+        img: "assets/img/visiteur/carousel-1.jpg",
         btn1: "About Us",
         btn2: "Our Causes",
-
       },
       {
         id: "2",
         tiltle:"Lifting the dreams of poor children is like planting seeds",
-        img: "assets/img/carousel-3.png",
+        img: "assets/img/visiteur/carousel-3.png",
         btn1: "About Us",
         btn2: "Our Causes",
         text:"they deserve the chance to grow into something beautiful"

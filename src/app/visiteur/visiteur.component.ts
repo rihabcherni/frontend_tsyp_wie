@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./visiteur.component.css']
 })
 export class VisiteurComponent {
-
+  showSpinner: boolean = true;
+  ngOnInit() {
+    setTimeout(() => {
+      this.showSpinner = false;
+    }, 1500);
+  }
 }

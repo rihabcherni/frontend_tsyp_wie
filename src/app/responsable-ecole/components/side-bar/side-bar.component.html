@@ -1,8 +1,8 @@
 
 <div class="navigation" [ngClass]="{'closed': !isSidebarOpen}">
   <ul>
-    <li style="margin: 10px 0 30px -20px;background-color: rgb(255, 255, 255);">
-      <a [routerLink]="['/admin']" href="admin">
+    <li class="logo-sidebar" [ngClass]="{'closed-logo': !isSidebarOpen}">
+      <a [routerLink]="['/ambassador']">
         <img src="../../assets/img/visiteur/logo2.png" style="height: 68px;" alt="logo" [ngStyle]="{ 'border-radius': '50%' }" />
         <h3 class="title mauve">WieHope</h3>
       </a>

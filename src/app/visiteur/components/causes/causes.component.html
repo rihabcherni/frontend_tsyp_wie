@@ -1,3 +1,14 @@
+<div class="py-5 position-relative mb-5 causes-header">
+  <div class="container py-5">
+      <h1 class="display-2 text-white animated slideInDown mb-4">Our causes</h1>
+      <nav aria-label="breadcrumb animated slideInDown">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a [routerLink]="['/']">Home</a></li>
+            <li class="breadcrumb-item text-white active" aria-current="page">Our causes</li>
+        </ol>
+      </nav>
+  </div>
+</div>
 <div class="container-xxl py-5">
   <div class="container">
       <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
@@ -11,7 +22,7 @@
                   <img class="img-fluid rounded-circle img-school" src="{{ cause.img }}" alt="{{ cause.school }}">
                 </div>
                 <div class="bg-light rounded p-4 pt-5 mt-n5">
-                    <a class="d-block text-center h4 mt-3 mb-4" href="#">{{ cause.school }}</a>
+                    <a class="d-block text-center h4 mt-3 mb-4">{{ cause.school }}</a>
                     <div class="d-flex align-items-center justify-content-between mb-4">
                         <div class="d-flex align-items-center">
                             <img class="rounded-circle flex-shrink-0" src="assets/img/user.jpg" alt="" style="width: 45px; height: 45px;">

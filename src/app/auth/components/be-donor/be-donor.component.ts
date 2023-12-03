@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-signup',
-  templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  selector: 'app-be-donor',
+  templateUrl: './be-donor.component.html',
+  styleUrls: ['./be-donor.component.css']
 })
-export class SignupComponent {
+export class BeDonorComponent {
   selectedType: string = ''; // Initialize with the default value or handle it according to your needs
 
   onDropdownItemClick(selectedValue: string): void {
