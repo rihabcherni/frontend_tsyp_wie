@@ -6,10 +6,10 @@ import { RouterModule } from '@angular/router';
 import { GestionResponsableComponent } from './components/gestion-responsable/gestion-responsable.component';
 import { GestionEcoleComponent } from './components/gestion-ecole/gestion-ecole.component';
 import { GestionDonateurComponent } from './components/gestion-donateur/gestion-donateur.component';
-import { GestionUtilisateurComponent } from './components/gestion-utilisateur/gestion-utilisateur.component';
 import { SchoolNeedsListManagementComponent } from './components/school-needs-list-management/school-needs-list-management.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { DonationsComponent } from './components/donations/donations.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,6 @@ import { DonationsComponent } from './components/donations/donations.component';
     GestionResponsableComponent,
     GestionEcoleComponent,
     GestionDonateurComponent,
-    GestionUtilisateurComponent,
     SchoolNeedsListManagementComponent,
     SideBarComponent,
     DonationsComponent,
@@ -26,6 +25,7 @@ import { DonationsComponent } from './components/donations/donations.component';
   imports: [
     CommonModule,
     RouterModule
-  ]
+  ],
+  providers: [DatePipe],
 })
 export class AdminModule { }

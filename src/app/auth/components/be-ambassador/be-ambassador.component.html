@@ -4,15 +4,21 @@
           <div class="row g-5 align-items-center">
               <div class="col-lg-6 wow fadeIn bg-light rounded" data-wow-delay="0.1s">
                   <div class="h-100 d-flex flex-column justify-content-center p-5">
-                    <h2 class="mb-4 text-uppercase">Register to be an ambassador</h2>
+                    <h3 class="mb-2 text-uppercase">Register to be an ambassador</h3>
                     <form>
                           <div class="row g-3">
                               <div class="col-sm-6">
                                   <div class="form-floating">
-                                      <input type="text" class="form-control border-0" id="name" placeholder="Name">
-                                      <label for="name">Name</label>
+                                      <input type="text" class="form-control border-0" id="firstName" placeholder="firstName">
+                                      <label for="firstName">FirstName</label>
                                   </div>
                               </div>
+                              <div class="col-sm-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control border-0" id="lastName" placeholder="lastName">
+                                    <label for="lastName">LastName</label>
+                                </div>
+                            </div>
                               <div class="col-sm-6">
                                   <div class="form-floating">
                                       <input type="email" class="form-control border-0" id="gmail" placeholder="Email">
@@ -26,14 +32,6 @@
                                       <label for="phone">Phone</label>
                                   </div>
                               </div>
-
-                              <div class="col-sm-6">
-                                  <div class="form-floating">
-                                      <input type="text" class="form-control border-0" id="NIC" placeholder="National Identification Card">
-                                      <label for="NIC">National Identification Card</label>
-                                  </div>
-                              </div>
-
 
                               <div class="col-sm-6">
                                 <div class="form-floating">
@@ -130,6 +128,10 @@
                           </div>
                           <div class="col-12">
                             <a [routerLink]="['/login']"><button class="btn btn-primary w-100 py-3" type="submit">Submit</button></a>
+                          </div>
+                          <div class="text-center">
+                            <span>Already have an account? </span>
+                            <a [routerLink]="['/login']"> Sign in instead</a>
                           </div>
                       </div>
                     </form>

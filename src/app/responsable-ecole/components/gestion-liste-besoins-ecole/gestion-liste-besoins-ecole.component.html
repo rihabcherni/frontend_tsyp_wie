@@ -1,1 +1,205 @@
-<p>gestion-liste-besoins-ecole works!</p>
+<!-- welcome part -->
+<!-- Page Header Start -->
+<div class=" py-5 mb-5" style="background: url('../../../../assets/img/visiteur/bg2.jpg') center center repeat-x;">
+  <div class="container py-5">
+      <h1 class="display-3 text-white mb-3 animated slideInDown">school needs managements </h1>
+  </div>
+</div>
+<!-- Page Header End -->
+<div class="container-fluid py-5">
+    <div class="container">
+      <div class="row align-items">
+        <div class="col-lg-5">
+          <img class="img-fluid rounded mb-5 mb-lg-0"
+            src="https://th.bing.com/th/id/R.b8b200efa18f9387d8352f22bd82aea4?rik=h8rDrT8KANYnjA&pid=ImgRaw&r=0" alt="" />
+        </div>
+        <div class="col-lg-7">
+
+          <h1 class="mb-4">List your school needs</h1>
+          <p>
+            Trough the tabels bellow you can add and edit you school needs
+          </p>
+          <div class="row pt-2 pb-4">
+
+            <div class="col-5 col-md-3">
+              <ul class="list-inline m-0">
+                <li class="py-2 border-top border-bottom">
+                  <i class="fa fa-check text-primary mr-3"></i> shool supplies
+                </li>
+                <li class="py-2 border-bottom">
+                  <i class="fa fa-check text-primary mr-3"></i>Clothes
+                </li>
+                <li class="py-2 border-bottom">
+                  <i class="fa fa-check text-primary mr-3"></i>money
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- About End -->
+  <!-- Class Start -->
+  <div class="container-fluid pt-5">
+    <!--start-->
+    <div class="row card-footer bg-transparent py-4 px-5">
+      <div class="col-lg-4 mb-5">
+        <div class="card border-0 bg-light shadow-sm pb-2">
+          <img class="card-img-top mb-2"  style="height: 185px;"
+            src="https://th.bing.com/th/id/OIP.taEP8MkUFfCB97hZZId9_gHaD3?rs=1&pid=ImgDetMain" alt="" />
+          <div class="container ">
+            <div class="card-body text-center">
+              <h4 class="card-title">School supplies </h4>
+              <p class="card-text">
+                Provide the list of  supplies that your students needs
+              </p>
+            </div>
+        <hr>
+            <div class=" bg-transparent ">
+              <div class="input-group mb-3">
+                <input type="text" class="form-control mr-2" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-primary" type="button" id="button-addon2">
+                    <i class="fas fa-book"></i>  search
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Table -->
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>shool supply</th>
+                  <th>quantiy</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Sample Table Data -->
+                <tr>
+                  <td>pen</td>
+                  <td> 6</td>
+                  <td>
+                    <button class="btn btn-primary float-end ">view </button>
+                  </td>
+                </tr>
+                <!-- Add more rows as needed -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Edit Modal -->
+          <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="editModalLabel">Edit Table</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <!-- Add or delete new line controls go here -->
+                  <p>Do you want to add or delete a new line?</p>
+                  <button class="btn btn-success">Add Line</button>
+                  <button class="btn btn-danger">Delete Line</button>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-lg-4 mb-5">
+        <div class="card border-0 bg-light shadow-sm pb-2">
+          <img class="card-img-top mb-2 " style="height: 185px;"
+            src="https://th.bing.com/th/id/OIP.FfYK9UeVFH7EERd20yACMgHaE8?rs=1&pid=ImgDetMain" alt="" />
+          <div class="card-body text-center">
+            <h4 class="card-title">Clothes</h4>
+            <p class="card-text">
+              Provide the list of Clothes that your students needs
+            </p>
+          </div>
+          <hr>
+          <div class=" bg-transparent ">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control mr-2" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button" id="button-addon2">
+                  <i class="fas fa-book"></i>  search
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Table -->
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>shool supply</th>
+                <th>quantiy</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Sample Table Data -->
+              <tr>
+                <td>pen</td>
+                <td> 6</td>
+                <td>
+                  <button class="btn btn-primary float-end ">view </button>
+                </td>
+              </tr>
+              <!-- Add more rows as needed -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-5">
+        <div class="card border-0 bg-light shadow-sm pb-2">
+          <img class="card-img-top mb-2" height="185px"
+            src="https://th.bing.com/th/id/OIP.whDjYofrcgnvHPcGC8-PQAAAAA?rs=1&pid=ImgDetMain" alt="" />
+          <div class="card-body text-center">
+            <h4 class="card-title">Money</h4>
+            <p class="card-text">
+              Provide the amont of money that your students needs
+            </p>
+          </div>
+          <hr>
+          <div class=" bg-transparent ">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control mr-2" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button" id="button-addon2">
+                  <i class="fas fa-book"></i>  search
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Table -->
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>shool supply</th>
+                <th>quantiy</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Sample Table Data -->
+              <tr>
+                <td>pen</td>
+                <td> 6</td>
+                <td>
+                  <button class="btn btn-primary float-end ">view </button>
+                </td>
+              </tr>
+              <!-- Add more rows as needed -->
+            </tbody>
+          </table>
+        </div>
+  <!-- Class End -->

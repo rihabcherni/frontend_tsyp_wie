@@ -5,13 +5,11 @@ import {  VisiteurComponent } from './visiteur/visiteur.component';
 import { ResponsableEcoleComponent  } from './responsable-ecole/responsable-ecole.component';
 import { DonateurComponent  } from './donateur/donateur.component';
 import { LoginComponent } from './auth/components/login/login.component';
-import { ChangePasswordComponent } from './auth/components/change-password/change-password.component';
 import { DashboardComponent } from './admin/components/dashboard/dashboard.component';
 import { DashboardComponent as  DashboardComponentDonor  } from './donateur/components/dashboard/dashboard.component';
 import { GestionDonateurComponent } from './admin/components/gestion-donateur/gestion-donateur.component';
 import { GestionResponsableComponent } from './admin/components/gestion-responsable/gestion-responsable.component';
 import { GestionEcoleComponent } from './admin/components/gestion-ecole/gestion-ecole.component';
-import { GestionUtilisateurComponent } from './admin/components/gestion-utilisateur/gestion-utilisateur.component';
 import { DashboardResponsableComponent } from './responsable-ecole/components/dashboard-responsable/dashboard-responsable.component';
 import { GestionListeBesoinsEcoleComponent } from './responsable-ecole/components/gestion-liste-besoins-ecole/gestion-liste-besoins-ecole.component';
 import { SchoolNeedsListManagementComponent } from './admin/components/school-needs-list-management/school-needs-list-management.component';
@@ -29,6 +27,8 @@ import { DonationsComponent } from './admin/components/donations/donations.compo
 import { ProfilAdminComponent } from './auth/components/profil-admin/profil-admin.component';
 import { ProfilDonorComponent } from './auth/components/profil-donor/profil-donor.component';
 import { ProfilAmbassadorComponent } from './auth/components/profil-ambassador/profil-ambassador.component';
+import { ForgotPasswordComponent } from './auth/components/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './auth/components/reset-password/reset-password.component';
 const routes: Routes = [
   { path: '', component: VisiteurComponent, children:[
       {path:'', component: HomeComponent},
@@ -39,12 +39,13 @@ const routes: Routes = [
       {path:'login', component:LoginComponent},
       {path:'be-donor', component:BeDonorComponent},
       {path:'be-ambassador', component:BeAmbassadorComponent},
-      {path:'change-password', component:ChangePasswordComponent},
+      {path:'forgot-password', component:ForgotPasswordComponent},
+      {path:'reset-password', component:ResetPasswordComponent},
   ]},
   { path: 'admin', component: AdminComponent,children:[
     {path:'', component:DashboardComponent},
     {path:'schools', component:GestionEcoleComponent},
-    {path:'users', component:GestionUtilisateurComponent},
+    {path:'donors', component:GestionDonateurComponent},
     {path:'profil', component:ProfilAdminComponent},
     {path:'donation',component:DonationsComponent},
 

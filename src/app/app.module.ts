@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
 
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { VisiteurModule } from './visiteur/visiteur.module';
@@ -23,7 +25,9 @@ import 'bootstrap';
     AdminModule,
     DonateurModule,
     ResponsableEcoleModule,
-    AuthModule
+    AuthModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,55 +1,183 @@
 import { Component, Renderer2, ElementRef ,OnInit,ViewChild} from '@angular/core';
 import { Chart, registerables } from 'chart.js';
+import { SuccessLoginMessageService } from '../../../auth/services/success-login-message.service'; // Adjust the path
+import { AdminDashService } from '../../../services/dashboard/admin-dash.service';
+import { DatePipe } from '@angular/common';
 
 Chart.register(...registerables);
-
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
+  statistics: any = {};
+  schoolStatistics: any = [];
+  lastDonation: any = [];
+  lastDonor: any = [];
+  donationStatistics: any = [];
+  successMessage: string = '';
+  lineChartData: any = {};
 
-
+  constructor(private successMessageService: SuccessLoginMessageService,private statisticsService: AdminDashService, private datePipe: DatePipe) {
+    this.successMessageService.successMessage$.subscribe((message) => {
+      this.successMessage = message;
+    });
+  }
   ngOnInit() {
-    // Line Chart
+    this.getStatistics();
+    this.getSchoolStatisticsByYear();
+    this.getDonationStatisticsByYear();
+    this.getlastDonationAdmin();
+    this.getlastDonorAdmin();
+  }
+  createChart() {
+    const labels = this.schoolStatistics.map((stat: any) => stat.year);
+    const data = this.schoolStatistics.map((stat: any) => stat.numberOfSchools);
     const lineChartData = {
-      labels: ['2015', '2016', '2017', '2018', '2019', '2020','2021','2022','2023'],
+      labels: labels,
       datasets: [{
-
-        data: [50, 60, 55, 65, 70, 65,75,80,70,90],
-        backgroundColor:'#fa7e71',
-        borderColor: '#fa7e71',
+        label: 'School',
+        data: data,
+        backgroundColor: '#971A82',
+        borderColor: '#A036A3',
         fill: false,
       }]
     };
 
-    new Chart('statisticsLineChart', {
+     new Chart('statisticsLineChart', {
       type: 'line',
       data: lineChartData,
-      options: {}
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: {
+              stepSize: 1 as number
+            }
+          }
+        },
+        plugins: {
+          title: {
+              display: true,
+              text: 'Number of Schools Over Years',
+              font: {
+                size: 16
+              },
+              color: '#971A82',
+          }
+      }
+      }
     });
-
-
-    const barChartData = {
-      labels: ['2015', '2016', '2017', '2018', '2019', '2020','2021','2022','2023'],
+  }
+  createChartDonation() {
+    const labels = this.donationStatistics.map((stat: any) => stat.year);
+    const data = this.donationStatistics.map((stat: any) => stat.numberOfDonations);
+    const lineChartData = {
+      labels: labels,
       datasets: [{
-        // label
-        data: [8,11,13,15,20, 18,22,25,20,21,24,25,28,30,32],
+        label: 'Donation',
+        data: data,
         backgroundColor: '#01b5b2',
-        borderColor: 'white',
-        borderWidth: 1,
-
-      }, ]
+        borderColor: '#365CA3',
+        fill: false,
+      }]
     };
 
-    new Chart('statisticsBarChart', {
+     new Chart('statisticsBarChartDonation', {
       type: 'bar',
-      data: barChartData,
-      options: {}
+      data: lineChartData,
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: {
+              stepSize: 1 as number
+            }
+          }
+        },
+        plugins: {
+          title: {
+              display: true,
+              text: 'Number of Donation Over Years',
+              font: {
+                size: 16
+              },
+              color: '#01b5b2',
+          }
+        }
+      },
     });
   }
 
+  getStatistics() {
+    this.statisticsService.getStatistics().subscribe(
+      (data) => {
+        this.statistics = data.data;
+        console.log(data.data);
+      },
+      (error) => {
+        console.error('Error fetching statistics:', error);
+      }
+    );
+  }
+  getSchoolStatisticsByYear() {
+    this.statisticsService.getSchoolStatisticsByYear().subscribe(
+      (data) => {
+        this.schoolStatistics = Array.isArray(data.data) ? data.data : [];
+        setTimeout(() => {
+          this.createChart();
+        }, 500);
+      },
+      (error) => {
+        console.error('Error fetching school statistics by year:', error);
+      }
+    );
+  }
+  getDonationStatisticsByYear(){
+    this.statisticsService.getDonationStatisticsByYear().subscribe(
+      (data) => {
+        this.donationStatistics = Array.isArray(data.data) ? data.data : [];
+        setTimeout(() => {
+          this.createChartDonation();
+        }, 500);
+      },
+      (error) => {
+        console.error('Error fetching donation statistics by year:', error);
+      }
+    );
+  }
+  getlastDonationAdmin() {
+    this.statisticsService.getlastDonationAdmin().subscribe(
+      (data) => {
+        const formattedDonations =(Array.isArray(data) ? data : []).map((donation: any) => {
+          return { ...donation, dateDonation: this.formatDate(donation.dateDonation) };
+        });
+        this.lastDonation = formattedDonations;
+        console.log(formattedDonations)
+      },
+      (error) => {
+        console.error('Error fetching statistics:', error);
+      }
+    );
+  }
+  getlastDonorAdmin() {
+    this.statisticsService.getlastDonorAdmin().subscribe(
+      (data) => {
+        const formattedDonors =(Array.isArray(data) ? data : []).map((donor: any) => {
+          return { ...donor, timeAdded: this.formatDate(donor.timeAdded) };
+        });
+        this.lastDonor = formattedDonors;
+        console.log(formattedDonors)
+      },
+      (error) => {
+        console.error('Error fetching statistics:', error);
+      }
+    );
+  }
 
+  private formatDate(date: string): string {
+    return this.datePipe.transform(new Date(date), 'dd-MM-yyyy HH:mm') || '';
+  }
 }

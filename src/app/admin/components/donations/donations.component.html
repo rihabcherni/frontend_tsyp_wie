@@ -1,45 +1,60 @@
 <div class=" details row ">
   <div class="cardHeader">
       <h2>Donations</h2>
-
   </div>
-
 </div>
 
 <div class="accordion" id="accordionExample">
-  <div class="accordion-item castom-border mb-2">
-    <h2 class="accordion-header">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-        <div class="row">
-          <div class="col-md-5 border-right " style="text-align: center;" >
-            <h4>Donation To "school"</h4>
+  <div class="accordion-item castom-border mb-2" *ngFor="let d of donation; let i = index">
+    <div class="accordion-header">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + i" aria-expanded="true" [attr.aria-controls]="'collapse' + i">
+        <div class="row-accordion">
+          <div class="border-right"><b>Donation To :</b> {{ d.school.name }}</div>
+          <div class="border-right"><b>Donation Date :</b> {{ d.formattedDate }}</div>
+          <div>
+            <b>  Donor: </b>{{ d.donor.firstName }} {{ d.donor.lastName }} <br> {{ d.donor.email }}
           </div>
-          <div class="col-md-4 border-right" style="text-align: center;" ><p>Donor flen fouleni</p></div>
-          <div class="col-md-3" style="text-align: center;" ><p>Date donation_date</p></div>
         </div>
       </button>
-    </h2>
-    <div id="collapseOne" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
-     <p class="p-2"> <strong>Donations details:</strong> hbvshlhfiqoemjcqjhbfvkqjs</p>
     </div>
-  </div>
-  <div class="accordion-item castom-border">
-    <h2 class="accordion-header">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-        <div class="row">
-          <div class="col-md-5 border-right " style="text-align: center;" >
-            <h4>Donation To "school"</h4>
+    <div id="collapse{{ i }}" class="accordion-collapse collapse p-2" [attr.data-bs-parent]="'#accordionExample'">
+      <div class="row2">
+        <div>
+          <b>School details:</b>
+          <div class="mx-3">
+            <b>Address: </b>{{ d.school.address }}<br/>
+            <b>governorate: </b>{{ d.school.governorate }}<br/>
+            <div class="school-info">
+              <div class="info-box">
+                <span class="info-value">{{ d.school.nbr_student }}</span>
+                <span class="info-label">Students</span>
+              </div>
+              <div class="info-box">
+                <span class="info-value">{{ d.school.nbr_teachers }}</span>
+                <span class="info-label">Teachers</span>
+              </div>
+              <div class="info-box">
+                <span class="info-value">{{ d.school.nbr_teachers }}</span>
+                <span class="info-label">Classrooms</span>
+              </div>
+            </div>
+            <b>Needs: </b> <strong>{{ d.school.type_needs }}</strong><br/>
+            {{ d.school.needs }}<br/>
           </div>
-          <div class="col-md-4 border-right" style="text-align: center;" ><p>Donor flen fouleni</p></div>
-          <div class="col-md-3" style="text-align: center;" ><p>Date donation_date</p></div>
         </div>
-      </button>
-    </h2>
-    <div id="collapseTwo" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
-      <p class="p-2"> <strong>Donations details:</strong> hbvshlhfiqoemjcqjhbfvkqjs</p>
+        <div>
+          <b>Donations details:</b>
+          <table border="1">
+            <tr *ngFor="let det of d.donationDetails">
+              <td class="px-4" style="color: rgb(54, 4, 87);">{{ det.number }}</td>
+              <td class="px-4" style="color: rgb(54, 4, 87);">{{ det.itemType }} </td>
+              <td class="px-4" style="color: rgb(54, 4, 87);">{{ det.description }} </td>
+            </tr>
+        </table>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
 
-        

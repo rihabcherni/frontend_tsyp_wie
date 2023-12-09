@@ -8,6 +8,21 @@ import { Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./side-bar.component.css']
 })
 export class SideBarComponent {
+  isDropdownOpen: boolean = false;
+  toggleDropdown(): void {
+    console.log('Toggle dropdown method called');
+    this.isDropdownOpen = !this.isDropdownOpen;
+  }
+
+  logout(): void {
+    console.log('Logout method called');
+    this.isDropdownOpen = false;
+  }
+  changePassword(): void {
+    this.router.navigate(['/donor/profil']);
+    this.isDropdownOpen = false;
+  }
+
   sidebarLinks = [
     { routerLink: '/donor', iconClass: 'fas fa-tachometer-alt', title: 'Dashboard' },
     { routerLink: '/donor/History-donations-made', iconClass: 'fas fa-donate', title: 'History donations' },

@@ -8,9 +8,25 @@ import { Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./side-bar.component.css']
 })
 export class SideBarComponent {
+  isDropdownOpen: boolean = false;
+  toggleDropdown(): void {
+    console.log('Toggle dropdown method called');
+    this.isDropdownOpen = !this.isDropdownOpen;
+  }
+
+  logout(): void {
+    console.log('Logout method called');
+    this.isDropdownOpen = false;
+  }
+  changePassword(): void {
+    this.router.navigate(['/ambassador/profil']);
+    this.isDropdownOpen = false;
+  }
+
   sidebarLinks = [
     { routerLink: '/ambassador', iconClass: 'fas fa-tachometer-alt', title: 'Dashboard' },
     { routerLink: '/ambassador/profil', iconClass: 'fas fa-user-circle', title: 'Profil' },
+    { routerLink: '/ambassador/school-needs-management', iconClass: 'fas fa-book', title: 'school needs' },
     { routerLink: '/ambassador/sign-out', iconClass: 'fas fa-sign-out-alt', title: 'Sign Out' }
   ];
   activeLink: string = '';
