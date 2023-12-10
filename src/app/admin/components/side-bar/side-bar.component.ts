@@ -1,6 +1,7 @@
 import { Component, Renderer2, ElementRef ,OnInit} from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { Input, Output, EventEmitter } from '@angular/core';
+import { AuthServicesService } from '../../../auth/services/auth-services.service';
 
 @Component({
   selector: 'app-side-bar',
@@ -35,13 +36,14 @@ export class SideBarComponent {
     { routerLink: '/admin/sign-out', iconClass: 'fas fa-sign-out-alt', title: 'Sign Out' }
   ];
   activeLink: string = '';
-  constructor(private router: Router) {
+  constructor(private router: Router, private authService: AuthServicesService) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.activeLink = event.url;
       }
     });
   }
+  nameUser =this.authService.getUserName();
   @Input() isSidebarOpen: boolean = true;
   @Output() toggleSidebar: EventEmitter<void> = new EventEmitter<void>();
 

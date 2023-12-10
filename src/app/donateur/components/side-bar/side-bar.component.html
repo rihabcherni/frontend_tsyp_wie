@@ -31,9 +31,9 @@
 </div>
   <div></div>
   <div class="row2">
-    <b>Jone Doe</b>
+    <b>{{ nameUser }}</b>
     <div class="user" (click)="toggleDropdown()">
-        <img src="../../assets/img/visiteur/customer01.jpg" alt="">
+        <img src="http://localhost:5000/uploads/userProfile/{{ photo }}" alt="">
     </div>
     <div *ngIf="isDropdownOpen" class="dropdown">
       <a (click)="logout()" class="s2"><b class="mx-3">Logout </b> <i class="fas fa-sign-out-alt"></i> </a>

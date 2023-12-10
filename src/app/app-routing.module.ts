@@ -61,7 +61,7 @@ const routes: Routes = [
   ] },
   { path: 'donor', component: DonateurComponent, children:[
     {path:'', component:DashboardComponentDonor},
-    {path:'History-donations-made', component:HistoriqueDonsComponent},
+    {path:'history-donations', component:HistoriqueDonsComponent},
     {path:'schools-needs', component:ListeBesoinsComponent},
     {path:'profil', component:ProfilDonorComponent},
   ] },

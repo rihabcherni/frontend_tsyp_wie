@@ -45,6 +45,21 @@ export class AuthServicesService {
     return userString ? JSON.parse(userString) : null;
   }
 
+  getUserId(): string | null {
+    const userString = localStorage.getItem(this.userKey);
+    const userObject = userString ? JSON.parse(userString) : null;
+    return userObject ? userObject.id : null;
+  }
+  getUserName(): string | null {
+    const userString = localStorage.getItem(this.userKey);
+    const userObject = userString ? JSON.parse(userString) : null;
+    return userObject ? userObject.firstName +" " + userObject.lastName : null;
+  }
+  getUserPhoto(): string | null {
+    const userString = localStorage.getItem(this.userKey);
+    const userObject = userString ? JSON.parse(userString) : null;
+    return userObject ? userObject.photo : null;
+  }
   removeUser(): void {
     localStorage.removeItem(this.userKey);
   }

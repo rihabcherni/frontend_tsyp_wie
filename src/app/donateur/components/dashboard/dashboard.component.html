@@ -1,186 +1,91 @@
 <div>
 <!-- =========================== cards ======================= -->
-  <div class="cardsBox">
-    <div class="cardDash">
-          <div class="cardbody">
-            <h4 style="color:rgb(105, 186, 191);"> 10 /50 <i class="fas fa-school" style="margin-left: 180px;"></i></h4>
-            <p> Schools Supported Through Your Donations</p>
-          </div>
+<div *ngIf="statistics" class="cardsBox">
+    <div class="cardDash c1">
+      <div class="cardbody">
+        <div class="cardLigne">
+          <h4>{{ statistics?.nb_unique_schools }} / {{ statistics?.nb_schools }}</h4>
+          <h3><i class="fas fa-school" ></i></h3>
+        </div>
+        <p>Schools Supported Through Your Donations</p>
+      </div>
     </div>
-    <div class="cardDash">
-          <div class="cardbody">
-            <h4 style="color:#fa7e71;"> 15/500  <i class="fas fa-hand-holding-usd" style="margin-left: 180px;"></i></h4>
-            <p>Number of your donations</p>
-          </div>
+    <div class="cardDash c2">
+      <div class="cardbody ">
+        <div class="cardLigne">
+          <h4> {{ statistics?.nb_unique_donations }} / {{ statistics?.nb_allDonations }}</h4>
+          <h3><i class="fas fa-hand-holding-usd" ></i></h3>
+        </div>
+        <p>Number of your donations</p>
+      </div>
     </div>
-    <div class="cardDash">
+    <div class="cardDash c3">
             <div class="cardbody">
-              <h4 style="color:rgb(124, 124, 255);">20<i class="fas fa-users" style="margin-left: 180px;"></i></h4>
+              <div class="cardLigne">
+                <h4> {{ statistics?.nb_donors }} </h4>
+                <h3> <i class="fas fa-users"></i></h3>
+              </div>
               <p>Total number of donors</p>
             </div>
     </div>
   </div>
   <!-- ================ Order Details List ================= -->
   <div class="details">
-<!-- =========================== charts ======================= -->
     <div>
       <div class="row">
         <div class=" recentOrders">
           <div class="cardHeader">
               <h2>Latest Donations</h2>
-              <a href="#" class="btn">View All</a>
+              <a [routerLink]="['/donor/history-donations']" class="btn">View All</a>
           </div>
-          <table>
-              <thead>
-                  <tr>
-                      <td>School</td>
-                      <td>Donation</td>
-                      <td>Donor</td>
-
+           <div *ngIf="lastDonation && lastDonation.length > 0">
+            <table class="tab-donation">
+                <thead>
+                    <tr class="color-title">
+                        <td>School</td>
+                        <td>Date</td>
+                        <td>Donation Items</td>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let donation of lastDonation">
+                    <td>{{ donation.school.name }}</td>
+                    <td>
+                     {{ donation.dateDonation }}
+                    </td>
+                    <td class="chips">
+                      <p *ngFor="let details of donation.donationDetails">
+                         {{ details.number }} {{ details.itemType }}
+                      </p>
+                    </td>
                   </tr>
-              </thead>
-              <tbody>
-                  <tr>
-                      <td>Star Refrigerator</td>
-                      <td>$1200</td>
-                      <td>Paid</td>
-
-                  </tr>
-
-                  <tr>
-                      <td>Dell Laptop</td>
-                      <td>$110</td>
-                      <td>Due</td>
-
-                  </tr>
-
-                  <tr>
-                      <td>Apple Watch</td>
-                      <td>$1200</td>
-                      <td>Paid</td>
-
-                  </tr>
-
-                  <tr>
-                      <td>Addidas Shoes</td>
-                      <td>$620</td>
-                      <td>Due</td>
-
-                  </tr>
-
-                  <tr>
-                      <td>Star Refrigerator</td>
-                      <td>$1200</td>
-                      <td>Paid</td>
-
-                  </tr>
-
-                  <tr>
-                      <td>Dell Laptop</td>
-                      <td>$110</td>
-                      <td>Due</td>
-
-                  </tr>
-
-                  <tr>
-                      <td>Apple Watch</td>
-                      <td>$1200</td>
-                      <td>Paid</td>
-
-                  </tr>
-
-                  <tr>
-                      <td>Addidas Shoes</td>
-                      <td>$620</td>
-                      <td>Due</td>
-
-                  </tr>
-              </tbody>
-          </table>
+                </tbody>
+            </table>
+            <div class="center-chart">
+              <div id="BarChart">
+                <canvas id="statisticsBarChartDonation" ></canvas>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-         <div>
-          <div class=" recentCustomers">
-              <div class="cardHeader">
-                  <h2>Schools need help</h2>
-              </div>
-
-              <table>
-                  <tr>
-                      <td width="60px">
-                          <div class="imgBx"><img src="../../assets/img/customer02.jpg" alt=""></div>
-                      </td>
-                      <td>
-                          <h4>David <br> <span>Italy</span></h4>
-                      </td>
-                  </tr>
-
-                  <tr>
-                      <td width="60px">
-                          <div class="imgBx"><img src="../../assets/img/visiteur/customer01.jpg" alt=""></div>
-                      </td>
-                      <td>
-                          <h4>Amit <br> <span>India</span></h4>
-                      </td>
-                  </tr>
-
-                  <tr>
-                      <td width="60px">
-                          <div class="imgBx"><img src="../../assets/img/customer02.jpg" alt=""></div>
-                      </td>
-                      <td>
-                          <h4>David <br> <span>Italy</span></h4>
-                      </td>
-                  </tr>
-
-                  <tr>
-                      <td width="60px">
-                          <div class="imgBx"><img src="../../assets/img/visiteur/customer01.jpg" alt=""></div>
-                      </td>
-                      <td>
-                          <h4>Amit <br> <span>India</span></h4>
-                      </td>
-                  </tr>
-
-                  <tr>
-                      <td width="60px">
-                          <div class="imgBx"><img src="../../assets/img/customer02.jpg" alt=""></div>
-                      </td>
-                      <td>
-                          <h4>David <br> <span>Italy</span></h4>
-                      </td>
-                  </tr>
-
-                  <tr>
-                      <td width="60px">
-                          <div class="imgBx"><img src="../../assets/img/visiteur/customer01.jpg" alt=""></div>
-                      </td>
-                      <td>
-                          <h4>Amit <br> <span>India</span></h4>
-                      </td>
-                  </tr>
-
-                  <tr>
-                      <td width="60px">
-                          <div class="imgBx"><img src="../../assets/img/visiteur/customer01.jpg" alt=""></div>
-                      </td>
-                      <td>
-                          <h4>David <br> <span>Italy</span></h4>
-                      </td>
-                  </tr>
-
-                  <tr>
-                      <td width="60px">
-                          <div class="imgBx"><img src="../../assets/img/customer02.jpg" alt=""></div>
-                      </td>
-                      <td>
-                          <h4>Amit <br> <span>India</span></h4>
-                      </td>
-                  </tr>
-              </table>
-          </div>
-
-         </div>
+  <div>
+    <div class=" recentCustomers">
+      <div class="cardHeader">
+          <h2>Schools need help</h2>
+          <a [routerLink]="['/donor/schools-needs']" class="btn">View All</a>
+      </div>
+      <div *ngIf="lastSchool && lastSchool.length > 0">
+        <table>
+          <tr *ngFor="let school of lastSchool">
+              <td>
+                <h4>{{ school.name }} (<span>{{ school.governorate }}) </span></h4>
+                <span style="font-size: 12px;"><b>Needs: </b>{{ school.type_needs }} </span>
+              </td>
+          </tr>
+        </table>
+      </div>
+    </div>
   </div>
 </div>

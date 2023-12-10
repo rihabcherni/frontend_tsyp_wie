@@ -86,97 +86,46 @@
    <div class="back mt-3">
 
      <h2 class="title">List of Schools Wie Support</h2>
-
-     <table class="table mx-auto" >
+     <table class="table mx-auto table-school"  *ngIf="school && school.length > 0" >
          <thead>
            <tr>
-             <th class="text-center" scope="col">#</th>
              <th class="text-center">School Name</th>
              <th class="text-center">Location</th>
-             <th class="text-center">Number of Students</th>
+             <th class="text-center">Students</th>
+             <th class="text-center">Teachers</th>
+             <th class="text-center">Date of add</th>
              <th class="text-center">Action</th>
            </tr>
          </thead>
          <tbody >
-             <!-- Première école acceptée -->
-             <tr class="text-center">
-                 <th scope="row">1</th>
-                 <td>School A</td>
-                 <td>City A</td>
-                 <td>500</td>
+             <tr class="text-center" *ngFor="let s of school ;">
+                 <td>{{ s.name }}</td>
+                 <td>{{ s.address }}, {{ s.governorate }}</td>
+                 <td>{{ s.nbr_student }}</td>
+                 <td>{{ s.nbr_teachers }}</td>
+                 <td>{{ s.dateConfirmation }}</td>
                  <td>
-                 <!-- Boutons d'action ou liens pour cette école -->
-
-                 <button type="button" class="btn btninfo">View Details</button>
-                 </td>
+                  <button type="button" class="btn btn-info" (click)="openDetailsModal(s)">View Details</button>
+                </td>
              </tr>
-
-             <!-- Première école acceptée -->
-             <tr class="text-center">
-                 <th scope="row">2</th>
-                 <td>School B</td>
-                 <td>City B</td>
-                 <td>600</td>
-                 <td>
-                 <!-- Boutons d'action ou liens pour cette école -->
-                 <button type="button" class="btn btninfo">View Details</button>
-                 </td>
-             </tr>
-
-             <!-- Première école acceptée -->
-             <tr class="text-center">
-                 <th scope="row">3</th>
-                 <td>School C</td>
-                 <td>City C</td>
-                 <td>200</td>
-                 <td>
-                 <!-- Boutons d'action ou liens pour cette école -->
-                 <button type="button" class="btn btninfo">View Details</button>
-                 </td>
-             </tr>
-
-             <!-- Première école acceptée -->
-             <tr class="text-center">
-                 <th scope="row">4</th>
-                 <td>School D</td>
-                 <td>City D</td>
-                 <td>400</td>
-                 <td>
-                 <!-- Boutons d'action ou liens pour cette école -->
-                 <button type="button" class="btn btninfo">View Details</button>
-                 </td>
-             </tr>
-
-             <!-- Première école acceptée -->
-             <tr class="text-center">
-                 <th scope="row">5</th>
-                 <td>School E</td>
-                 <td>City E</td>
-                 <td>647</td>
-                 <td>
-                 <!-- Boutons d'action ou liens pour cette école -->
-                 <button type="button" class="btn btninfo">View Details</button>
-                 </td>
-             </tr>
-
-             <!-- Première école acceptée -->
-             <tr class="text-center">
-                 <th scope="row">6</th>
-                 <td>School F</td>
-                 <td>City F</td>
-                 <td>730</td>
-                 <td>
-                 <!-- Boutons d'action ou liens pour cette école -->
-                 <button type="button" class="btn btninfo">View Details</button>
-                 </td>
-             </tr>
-
-
-
-         </tbody>
-
+        </tbody>
      </table>
  </div>
+
+ <div class="modal-overlay" id="modal">
+  <div class="modal-content">
+    <span class="modal-close" (click)="onNoClick()">&times;</span>
+    <h2>School Details</h2>
+
+    <div *ngIf="selectedSchool">
+      <p><strong>School Name:</strong> {{ selectedSchool.name }}</p>
+      <p><strong>Location:</strong> {{ selectedSchool.address }}, {{ selectedSchool.governorate }}</p>
+      <p><strong>Number of Students:</strong> {{ selectedSchool.nbr_student }}</p>
+      <p><strong>Number of Teachers:</strong> {{ selectedSchool.nbr_teachers }}</p>
+      <p><strong>Date of Confirmation:</strong> {{ selectedSchool.dateConfirmation }}</p>
+    </div>
+  </div>
+</div>
 
 
 
