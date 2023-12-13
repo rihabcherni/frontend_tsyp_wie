@@ -13,13 +13,13 @@
     </section>
     <div class="row">
       <div class="col-md-6 mb-4" *ngFor="let a of acteur">
-        <i [ngClass]="a.icon" style='color: #7b4fc1;'></i>
+        <i [ngClass]="a.icon" style='color: #7b4fc1; font-size: 80px;'></i>
         <h4 class="my-4">{{ a.role }}</h4>
         <div *ngIf="!a.showMore" >
           <p class="mx-5">
             {{ a.text | slice: 0:250 }}...
             <span *ngIf="!a.showMore">
-              <a style="cursor: pointer; color: #7b4fc1;" (click)="a.showMore =true">Read More</a>
+              <a style="cursor: pointer; color: #7b4fc1; font-weight: bold;" (click)="a.showMore =true">Read More</a>
             </span>
           </p>
         </div>
@@ -27,7 +27,7 @@
           <p class="mx-5">
             {{ a.text }}
             <span *ngIf="a.showMore">
-              <a style="cursor: pointer; color: #7b4fc1;" (click)="a.showMore =false">Read Less</a>
+              <a style="cursor: pointer; color: #7b4fc1; font-weight: bold;" (click)="a.showMore =false">Read Less</a>
             </span>
           </p>
         </div>

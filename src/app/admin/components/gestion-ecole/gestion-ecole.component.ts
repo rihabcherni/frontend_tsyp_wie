@@ -9,20 +9,31 @@ import { DatePipe } from '@angular/common';
 })
 export class GestionEcoleComponent {
   school: any[] = [];
+  demande: any[] = [];
   constructor(private schoolService: GestionSchoolService, private datePipe: DatePipe) { }
 
   ngOnInit(): void {
     this.getAllSchool();
+    this.getAllSchoolsDemande();
   }
 
   getAllSchool(): void {
     this.schoolService.getAllSchool().subscribe(
       (data: any) => {
-        const formattedSchools = data.map((school: any) => {
-          return { ...school, dateConfirmation: this.formatDate(school.dateConfirmation) };
+        const formattedSchools = data.schoolsWithAmbassadors.map((schoolWithAmbassadors: any) => {
+          const formattedAmbassadors = schoolWithAmbassadors.ambassadors.map((ambassador: any) => {
+            return { ...ambassador, /* Ajoutez ici d'autres propriétés si nécessaire */ };
+          });
+
+          return {
+            ...schoolWithAmbassadors.school,
+            dateConfirmation: this.formatDate(schoolWithAmbassadors.school.dateConfirmation),
+            ambassadors: formattedAmbassadors,
+          };
         });
+
         this.school = formattedSchools;
-        console.log('schools:', formattedSchools);
+        console.log('schools with ambassadors:', formattedSchools);
       },
       (error: any) => {
         console.error('Error fetching schools:', error);
@@ -30,6 +41,28 @@ export class GestionEcoleComponent {
     );
   }
 
+  getAllSchoolsDemande(): void {
+    this.schoolService.getAllSchoolsDemande().subscribe(
+      (data: any) => {
+        const formattedSchools = data.schoolsWithAmbassadors.map((schoolWithAmbassadors: any) => {
+          const formattedAmbassadors = schoolWithAmbassadors.ambassadors.map((ambassador: any) => {
+            return { ...ambassador, /* Ajoutez ici d'autres propriétés si nécessaire */ };
+          });
+          return {
+            ...schoolWithAmbassadors.school,
+            dateConfirmation: this.formatDate(schoolWithAmbassadors.school.dateConfirmation),
+            ambassadors: formattedAmbassadors,
+          };
+        });
+
+        this.demande = formattedSchools;
+        console.log('schools with ambassadors:', formattedSchools);
+      },
+      (error: any) => {
+        console.error('Error fetching schools:', error);
+      }
+    );
+  }
   private formatDate(date: string): string {
     return this.datePipe.transform(new Date(date), 'dd-MM-yyyy HH:mm') || '';
   }

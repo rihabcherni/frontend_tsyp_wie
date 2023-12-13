@@ -16,64 +16,39 @@
       <p>Many schools are facing challenging circumstances and require assistance to provide a better learning environment for their students. Your generosity can make a significant impact by supporting these schools in need. Contribute to their educational journey and help create a brighter future for the next generation.</p>
     </div>
       <div class="row g-4" >
-          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s" *ngFor="let cause of causes">
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s" *ngFor="let cause of school">
             <div class="activities-item">
                 <div class="bg-light rounded-circle w-75 mx-auto p-3">
-                  <img class="img-fluid rounded-circle img-school" src="{{ cause.img }}" alt="{{ cause.school }}">
+                  <img class="img-fluid rounded-circle img-school" src="{{ cause.img }}" alt="{{ cause.name }}">
                 </div>
                 <div class="bg-light rounded p-4 pt-5 mt-n5">
-                    <a class="d-block text-center h4 mt-3 mb-4">{{ cause.school }}</a>
+                    <a class="d-block text-center h4 mt-3 mb-4">{{ cause.name }}</a>
                     <div class="d-flex align-items-center justify-content-between mb-4">
                         <div class="d-flex align-items-center">
                             <div>
                               <h6 class="mb-1"> <b class="text-info mb-1">Ambassador </b><b class="text-primary mb-1">{{ cause.ambassador }}</b> ({{ cause.ambassadorRole }})</h6>
-                              <b>Address: </b>{{ cause.adresse }}
+                              <b>Address: </b>{{ cause.address }} {{ cause.governorate }}
                             </div>
                         </div>
                     </div>
                     <div class="row g-1">
                         <div class="col-4">
                             <div class="border-top border-3 border-primary pt-2">
-                                <h6 class="text-primary mb-1">Students: <small>{{ cause.student }}</small></h6>
-
+                                <h6 class="text-primary mb-1">Students: <small>{{ cause.nbr_student }}</small></h6>
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="border-top border-3 border-success pt-2">
-                                <h6 class="text-success mb-1">Teachers:<small>{{ cause.teacher}}</small></h6>
-
+                                <h6 class="text-success mb-1">Teachers:<small>{{ cause.nbr_teachers}}</small></h6>
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="border-top border-3 border-warning pt-2">
-                                <h6 class="text-warning mb-1">Class:<small>{{ cause.class }}</small></h6>
-
+                                <h6 class="text-warning mb-1">Class:<small>{{ cause.nbr_class }}</small></h6>
                             </div>
                         </div>
                     </div>
-                    <b>Needs: </b>
-                    <div class="row g-1">
-                      <div class="col-4">
-                          <div class="border-top border-3 border-primary pt-2">
-                              <h6 class="text-primary mb-1">Students: <small>{{ cause.student }}</small></h6>
-
-                          </div>
-                      </div>
-                      <div class="col-4">
-                          <div class="border-top border-3 border-success pt-2">
-                              <h6 class="text-success mb-1">Teachers:<small>{{ cause.teacher}}</small></h6>
-
-                          </div>
-                      </div>
-                      <div class="col-4">
-                          <div class="border-top border-3 border-warning pt-2">
-                              <h6 class="text-warning mb-1">Class:<small>{{ cause.class }}</small></h6>
-
-                          </div>
-                      </div>
-                  </div>
-
-
+                  <b>Needs: </b>
                   <div class="text-center">
                     <span class="p-2 m-1" *ngFor="let b of cause.besoin">{{ b }}</span>
                   </div>
@@ -86,3 +61,8 @@
     </div>
   </div>
 </div>
+type_needs	"Basic School Supplies"
+needs	"We have an urgent need for basic school supplies, including notebooks, pens, pencils, and educational materials. These essential supplies are necessary to ensure a proper learning experience for our students."
+confirmation	true
+image	""
+dateConfirmation	"2020-05-14T15:10:37.039Z"

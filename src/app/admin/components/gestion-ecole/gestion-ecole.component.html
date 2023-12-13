@@ -1,18 +1,18 @@
  <!-- ================= Schools Requests ================ -->
  <div class="back">
     <h2 class="title">Schools Requests and Initiatives</h2>
-     <div class="card mb-3" >
+     <div class="card mb-3" *ngFor="let d of demande" >
          <div class="row g-0">
              <div class="col-md-3 px-2" style="display: flex;justify-content: center;align-items: center;">
                  <img src="../../assets/img/visiteur/school1.jpg"  class="img-fluid rounded-start" alt="">
              </div>
              <div class="col-md-9">
                  <div class="cardb">
-                     <h5 class="cardtitle">Basic School Supplies</h5>
-                     <div class="schoolname"><h6>School Name : </h6><p>school 1</p></div>
-                     <div class="schoollocation"><h6>Location : </h6><p>location 1</p></div>
+                     <h5 class="cardtitle">{{ d.type_needs }}</h5>
+                     <div class="schoolname"><h6>School Name : </h6><p>{{ d.name }}</p></div>
+                     <div class="schoollocation"><h6>Location : </h6><p>{{ d.address }}, {{ d.governorate }}</p></div>
                      <h6></h6>
-                     <p>We have an urgent need for basic school supplies, including notebooks, pens, pencils, and educational materials. These essential supplies are necessary to ensure a proper learning experience for our students.</p>
+                     <p>{{ d.needs }}</p>
                      <div class="cardHeader justify-content-end">
                          <button type="button" class="btn acceptbtn">Accept Request</button>
                          <button type="button" class="btn rejectbtn">Reject Request</button>
@@ -21,76 +21,16 @@
              </div>
          </div>
      </div>
-
-     <div class="card mb-3" >
-         <div class="row g-0">
-         <div class="col-md-3 px-2" style="display: flex;justify-content: center;align-items: center;">
-             <img src="../../assets/img/visiteur/school2.jpg"  class="img-fluid rounded-start" alt="...">
-         </div>
-         <div class="col-md-9">
-             <div class="cardb">
-                 <h5 class="cardtitle">Psychological Support</h5>
-                 <div class="schoolname"><h6>School Name : </h6><p>school 1</p></div>
-                 <div class="schoollocation"><h6>Location : </h6><p>location 1</p></div>
-                 <p >With the goal of improving the emotional well-being of our students, we are seeking funds to implement a psychological support program, including individual sessions and group workshops.</p>
-                 <div class="cardHeader justify-content-end">
-                     <button type="button" class="btn acceptbtn">Accept Request</button>
-                     <button type="button" class="btn rejectbtn">Reject Request</button>
-                 </div>
-             </div>
-         </div>
-         </div>
-     </div>
-
-     <div class="card mb-3" >
-         <div class="row g-0">
-         <div class="col-md-3 px-2" style="display: flex;justify-content: center;align-items: center;">
-             <img src="../../assets/img/visiteur/school3.jpg"  class="img-fluid rounded-start" alt="...">
-         </div>
-         <div class="col-md-9">
-             <div class="cardb">
-                 <h5 class="cardtitle">School Meal Program</h5>
-                 <div class="schoolname"><h6>School Name : </h6><p>school 1</p></div>
-                 <div class="schoollocation"><h6>Location : </h6><p>location 1</p></div>
-                 <p >We aim to establish a school meal program to ensure nutritious food for our students. Funds are needed for the purchase of kitchen equipment and food supplies.</p>
-                 <div class="cardHeader justify-content-end">
-                     <button type="button" class="btn acceptbtn">Accept Request</button>
-                     <button type="button" class="btn rejectbtn">Reject Request</button>
-                 </div>
-             </div>
-         </div>
-         </div>
-     </div>
-
-     <div class="card mb-3" >
-         <div class="row g-0">
-         <div class="col-md-3 px-2" style="display: flex;justify-content: center;align-items: center;">
-             <img src="../../assets/img/visiteur/school4.jpg"  class="img-fluid rounded-start" alt="...">
-         </div>
-         <div class="col-md-9">
-             <div class=" cardb">
-                 <h5 class="cardtitle">Library Renovation and Computer Equipment</h5>
-                 <div class="schoolname"><h6>School Name : </h6><p>school 1</p></div>
-                 <div class="schoollocation"><h6>Location : </h6><p>location 1</p></div>
-                 <p >We're renovating our library and seeking funds for new books. Additionally, we're improving computer skills, seeking donations for computers and classes. Your support enhances our educational environment.</p>
-                 <div class="cardHeader justify-content-end">
-                     <button type="button" class="btn acceptbtn">Accept Request</button>
-                     <button type="button" class="btn rejectbtn">Reject Request</button>
-                 </div>
-             </div>
-         </div>
-         </div>
-     </div>
- </div>
+  </div>
   <!-- ================= New Customers ================ -->
    <div class="back mt-3">
-
      <h2 class="title">List of Schools Wie Support</h2>
      <table class="table mx-auto table-school"  *ngIf="school && school.length > 0" >
          <thead>
            <tr>
              <th class="text-center">School Name</th>
              <th class="text-center">Location</th>
+             <th class="text-center">Ambassador</th>
              <th class="text-center">Students</th>
              <th class="text-center">Teachers</th>
              <th class="text-center">Date of add</th>
@@ -100,32 +40,37 @@
          <tbody >
              <tr class="text-center" *ngFor="let s of school ;">
                  <td>{{ s.name }}</td>
-                 <td>{{ s.address }}, {{ s.governorate }}</td>
+                 <td>{{ s.address }},{{ s.governorate }}</td>
+                 <td>
+                  <div *ngFor="let a of s.ambassadors ;">
+                    <span class="btn-outline-primary p-1 rounded-2">{{ a.firstName }} {{ a.lastName }} ({{ a.title }})</span><br/>
+                  </div>
+                </td>
                  <td>{{ s.nbr_student }}</td>
                  <td>{{ s.nbr_teachers }}</td>
                  <td>{{ s.dateConfirmation }}</td>
                  <td>
-                  <button type="button" class="btn btn-info" (click)="openDetailsModal(s)">View Details</button>
+                  <button type="button" class="btn btn-primary" (click)="openDetailsModal(s)">View Details</button>
                 </td>
              </tr>
         </tbody>
      </table>
- </div>
+   </div>
 
- <div class="modal-overlay" id="modal">
-  <div class="modal-content">
-    <span class="modal-close" (click)="onNoClick()">&times;</span>
-    <h2>School Details</h2>
+  <div class="modal-overlay" id="modal">
+    <div class="modal-content">
+      <span class="modal-close" (click)="onNoClick()">&times;</span>
+      <h2>School Details</h2>
 
-    <div *ngIf="selectedSchool">
-      <p><strong>School Name:</strong> {{ selectedSchool.name }}</p>
-      <p><strong>Location:</strong> {{ selectedSchool.address }}, {{ selectedSchool.governorate }}</p>
-      <p><strong>Number of Students:</strong> {{ selectedSchool.nbr_student }}</p>
-      <p><strong>Number of Teachers:</strong> {{ selectedSchool.nbr_teachers }}</p>
-      <p><strong>Date of Confirmation:</strong> {{ selectedSchool.dateConfirmation }}</p>
+      <div *ngIf="selectedSchool">
+        <p><strong>School Name:</strong> {{ selectedSchool.name }}</p>
+        <p><strong>Location:</strong> {{ selectedSchool.address }}, {{ selectedSchool.governorate }}</p>
+        <p><strong>Number of Students:</strong> {{ selectedSchool.nbr_student }}</p>
+        <p><strong>Number of Teachers:</strong> {{ selectedSchool.nbr_teachers }}</p>
+        <p><strong>Date of Confirmation:</strong> {{ selectedSchool.dateConfirmation }}</p>
+      </div>
     </div>
   </div>
-</div>
 
 
 

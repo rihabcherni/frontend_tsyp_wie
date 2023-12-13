@@ -13,6 +13,10 @@ export class GestionSchoolService {
     return this.http.get(`${this.baseUrl}/getSchool`);
   }
 
+  getAllSchoolsDemande(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/getAllSchoolsDemande`);
+  }
+
   getSchoolDetails(id: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/getSchool/${id}`);
   }
