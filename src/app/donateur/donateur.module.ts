@@ -7,6 +7,8 @@ import { HistoriqueDonsComponent } from './components/historique-dons/historique
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     DonateurComponent,
@@ -17,7 +19,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule 
   ]
 })
 export class DonateurModule { }

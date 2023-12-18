@@ -14,6 +14,10 @@ export class GestionDonationService {
     return this.http.get(`${this.baseUrl}/getAllDonations`);
   }
 
+  getAllDonationsByDonor(donorId: string): Observable<any> {
+    const url = `${this.baseUrl}/getAllDonationsByDonor/${donorId}`;
+    return this.http.get(url);
+  }
   getDonationById(id: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/getDonationById/${id}`);
   }

@@ -11,12 +11,11 @@ import { AuthServicesService } from '../../../auth/services/auth-services.servic
 export class SideBarComponent {
   isDropdownOpen: boolean = false;
   toggleDropdown(): void {
-    console.log('Toggle dropdown method called');
     this.isDropdownOpen = !this.isDropdownOpen;
   }
 
   logout(): void {
-    console.log('Logout method called');
+    this.router.navigate(['/']);
     this.isDropdownOpen = false;
   }
   changePassword(): void {
@@ -33,7 +32,7 @@ export class SideBarComponent {
     { routerLink: '/admin/donors', iconClass: 'fas fa-users-cog', title: 'Donors' },
     { routerLink: '/admin/ambassador-management', iconClass: 'fas fa-users-cog', title: 'Ambassadors' },
     { routerLink: '/admin/profil', iconClass: 'fas fa-user-circle', title: 'Profil' },
-    { routerLink: '/admin/sign-out', iconClass: 'fas fa-sign-out-alt', title: 'Sign Out' }
+    { routerLink: '/', iconClass: 'fas fa-sign-out-alt', title: 'Sign Out' }
   ];
   activeLink: string = '';
   constructor(private router: Router, private authService: AuthServicesService) {

@@ -24,13 +24,13 @@
             <div class="col-5 col-md-3">
               <ul class="list-inline m-0">
                 <li class="py-2 border-top border-bottom">
-                  <i class="fa fa-check text-primary mr-3"></i> shool supplies
+                  <i class="fa fa-check text-primary mr-3"></i> Shool supplies
                 </li>
                 <li class="py-2 border-bottom">
                   <i class="fa fa-check text-primary mr-3"></i>Clothes
                 </li>
                 <li class="py-2 border-bottom">
-                  <i class="fa fa-check text-primary mr-3"></i>money
+                  <i class="fa fa-check text-primary mr-3"></i>Money
                 </li>
               </ul>
             </div>
@@ -38,32 +38,37 @@
         </div>
       </div>
     </div>
-  </div>
+</div>
   <!-- About End -->
-  <!-- Class Start -->
-  <div class="container-fluid pt-5">
-    <!--start-->
-    <div class="row card-footer bg-transparent py-4 px-5">
+  <div class="container-fluid pt-2">
+    <div class="row card-footer bg-transparent py-4">
       <div class="col-lg-4 mb-5">
         <div class="card border-0 bg-light shadow-sm pb-2">
           <img class="card-img-top mb-2"  style="height: 185px;"
             src="https://th.bing.com/th/id/OIP.taEP8MkUFfCB97hZZId9_gHaD3?rs=1&pid=ImgDetMain" alt="" />
           <div class="container ">
             <div class="card-body text-center">
-              <h4 class="card-title">School supplies </h4>
-              <p class="card-text">
-                Provide the list of  supplies that your students needs
-              </p>
+              <h4 >School supplies </h4>
+              <p >  Provide the list of  supplies that your students needs </p>
+              <hr>
             </div>
-        <hr>
             <div class=" bg-transparent ">
               <div class="input-group mb-3">
                 <input type="text" class="form-control mr-2" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
                 <div class="input-group-append">
-                  <button class="btn btn-primary" type="button" id="button-addon2">
-                    <i class="fas fa-book"></i>  search
-                  </button>
+                  <button class="btn btn-primary" type="button" id="button-addon2">  <i class="fas fa-book"></i>  search  </button>
                 </div>
+              </div>
+            </div>
+            <div class=" bg-transparent">
+              <div style="display: grid; grid-template-columns: 70% 34%;">
+                <form style="display: flex; justify-content: space-between;">
+                  <input type="text" #typeNeeds1 class="form-control mr-2" placeholder="Type" aria-label="text" aria-describedby="button-addon2">
+                  <input type="text" #quantity1 class="form-control mr-2" placeholder="Number" aria-label="text" aria-describedby="button-addon2">
+                </form>
+                  <button type="submit"  (click)="addSchool(typeNeeds1.value, quantity1.value)" class="btn btn-primary"  style="margin-top: 3px;" id="button-addon2">
+                    <i class="fas fa-book"></i>  ADD
+                  </button>
               </div>
             </div>
 
@@ -72,17 +77,16 @@
               <thead>
                 <tr>
                   <th>shool supply</th>
-                  <th>quantiy</th>
-
+                  <th>quantity</th>
+                  <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
-                <!-- Sample Table Data -->
-                <tr>
-                  <td>pen</td>
-                  <td> 6</td>
-                  <td>
-                    <button class="btn btn-primary float-end ">view </button>
+                <tr *ngFor="let Is of selectedItemsSchool" >
+                  <td>{{ Is.typeNeeds }}</td>
+                  <td>{{ Is.quantity }}</td>
+                  <td style="display: flex; justify-content: space-between;">
+                    <button class="btn btn-primary float-end "> <i class="fa fa-trash"></i> </button>
                   </td>
                 </tr>
                 <!-- Add more rows as needed -->
@@ -126,12 +130,24 @@
           <hr>
           <div class=" bg-transparent ">
             <div class="input-group mb-3">
+
               <input type="text" class="form-control mr-2" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
               <div class="input-group-append">
                 <button class="btn btn-primary" type="button" id="button-addon2">
-                  <i class="fas fa-book"></i>  search
+                  <i class="fas fa-tshirt"></i>  search
                 </button>
               </div>
+            </div>
+          </div>
+          <div class=" bg-transparent">
+            <div style="display: grid; grid-template-columns: 70% 34%;">
+              <form style="display: flex; justify-content: space-between;">
+                <input type="text" #typeNeeds1 class="form-control mr-2" placeholder="Type" aria-label="text" aria-describedby="button-addon2">
+                <input type="text" #quantity1 class="form-control mr-2" placeholder="Number" aria-label="text" aria-describedby="button-addon2">
+              </form>
+                <button type="submit"  (click)="addCloths(typeNeeds1.value, quantity1.value)" class="btn btn-primary"  style="margin-top: 3px;" id="button-addon2">
+                  <i class="fas fa-book"></i>  ADD
+                </button>
             </div>
           </div>
 
@@ -140,17 +156,16 @@
             <thead>
               <tr>
                 <th>shool supply</th>
-                <th>quantiy</th>
-
+                <th>quantity</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
-              <!-- Sample Table Data -->
-              <tr>
-                <td>pen</td>
-                <td> 6</td>
-                <td>
-                  <button class="btn btn-primary float-end ">view </button>
+              <tr *ngFor="let Is of selectedItemsClothes" >
+                <td>{{ Is.typeNeeds }}</td>
+                <td>{{ Is.quantity }}</td>
+                <td style="display: flex; justify-content: space-between;">
+                  <button class="btn btn-primary float-end "> <i class="fa fa-trash"></i> </button>
                 </td>
               </tr>
               <!-- Add more rows as needed -->
@@ -159,7 +174,7 @@
         </div>
       </div>
       <div class="col-lg-4 mb-5">
-        <div class="card border-0 bg-light shadow-sm pb-2">
+      <div class="card border-0 bg-light shadow-sm pb-2">
           <img class="card-img-top mb-2" height="185px"
             src="https://th.bing.com/th/id/OIP.whDjYofrcgnvHPcGC8-PQAAAAA?rs=1&pid=ImgDetMain" alt="" />
           <div class="card-body text-center">
@@ -174,7 +189,18 @@
               <input type="text" class="form-control mr-2" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
               <div class="input-group-append">
                 <button class="btn btn-primary" type="button" id="button-addon2">
-                  <i class="fas fa-book"></i>  search
+                  <i class="fas fa-money-bill-alt"></i>  search
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class=" bg-transparent ">
+            <div class="input-group mb-3">
+
+              <input type="text" class="form-control mr-2" placeholder="Dt" aria-label="Search" aria-describedby="button-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button" id="button-addon2" (click)="openDetailsModal()">
+                  <i class="fas fa-money-bill-alt"></i>  ADD
                 </button>
               </div>
             </div>
@@ -184,16 +210,16 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <th>shool supply</th>
-                <th>quantiy</th>
+                <th>Money</th>
+
 
               </tr>
             </thead>
             <tbody>
               <!-- Sample Table Data -->
               <tr>
-                <td>pen</td>
-                <td> 6</td>
+
+                <td> 200 dt</td>
                 <td>
                   <button class="btn btn-primary float-end ">view </button>
                 </td>
@@ -201,5 +227,18 @@
               <!-- Add more rows as needed -->
             </tbody>
           </table>
-        </div>
+      </div>
+      </div>
   <!-- Class End -->
+  <div class="modal-overlay" id="modalAdd">
+    <div class="modal-content">
+      <span class="modal-close" (click)="onNoClick()">&times;</span>
+        <h4>You have added </h4>
+        <div>
+          <h3>Results:</h3>
+          <p>Type: {{ typeNeeds }}</p>
+          <p>Quantity: {{ quantity }}</p>
+        </div>
+    </div>
+
+  </div>

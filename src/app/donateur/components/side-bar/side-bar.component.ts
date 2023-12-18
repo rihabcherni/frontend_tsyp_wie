@@ -16,7 +16,7 @@ export class SideBarComponent {
   }
 
   logout(): void {
-    console.log('Logout method called');
+    this.router.navigate(['/']);
     this.isDropdownOpen = false;
   }
   changePassword(): void {
@@ -29,7 +29,7 @@ export class SideBarComponent {
     { routerLink: '/donor/history-donations', iconClass: 'fas fa-donate', title: 'History donations' },
     { routerLink: '/donor/schools-needs', iconClass: 'fas fa-school', title: 'Schools needs' },
     { routerLink: '/donor/profil', iconClass: 'fas fa-user-circle', title: 'Profil' },
-    { routerLink: '/donor/sign-out', iconClass: 'fas fa-sign-out-alt', title: 'Sign Out' }
+    { routerLink: '/', iconClass: 'fas fa-sign-out-alt', title: 'Sign Out' }
   ];
   activeLink: string = '';
   constructor(private router: Router, private authService: AuthServicesService) {

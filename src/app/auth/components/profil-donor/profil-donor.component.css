@@ -39,3 +39,19 @@ color: #4f1f9c;
 .btn:focus{
   box-shadow: none;
 }
+
+
+.profil-container{
+  display: grid;
+  grid-template-columns: 28% 70%;
+  gap: 2%;
+  margin: -8rem 2rem 0;
+}
+.profil-container2{
+  margin: 1rem 2rem;
+  padding: 1rem 2rem;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,0.125);
+  border-radius: 10px;
+}

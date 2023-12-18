@@ -1,6 +1,7 @@
 import { Component, Renderer2, ElementRef ,OnInit} from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { Input, Output, EventEmitter } from '@angular/core';
+import { AuthServicesService } from 'src/app/auth/services/auth-services.service';
 
 @Component({
   selector: 'app-side-bar',
@@ -15,7 +16,7 @@ export class SideBarComponent {
   }
 
   logout(): void {
-    console.log('Logout method called');
+    this.router.navigate(['/']);
     this.isDropdownOpen = false;
   }
   changePassword(): void {
@@ -25,18 +26,19 @@ export class SideBarComponent {
 
   sidebarLinks = [
     { routerLink: '/ambassador', iconClass: 'fas fa-tachometer-alt', title: 'Dashboard' },
-    { routerLink: '/ambassador/profil', iconClass: 'fas fa-user-circle', title: 'Profil' },
     { routerLink: '/ambassador/school-needs-management', iconClass: 'fas fa-book', title: 'school needs' },
-    { routerLink: '/ambassador/sign-out', iconClass: 'fas fa-sign-out-alt', title: 'Sign Out' }
+    { routerLink: '/ambassador/profil', iconClass: 'fas fa-user-circle', title: 'Profil' },
+    { routerLink: '/', iconClass: 'fas fa-sign-out-alt', title: 'Sign Out' }
   ];
   activeLink: string = '';
-  constructor(private router: Router) {
+  constructor(private router: Router, private authService: AuthServicesService) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.activeLink = event.url;
       }
     });
   }
+  nameUser =this.authService.getUserName();
   @Input() isSidebarOpen: boolean = true;
   @Output() toggleSidebar: EventEmitter<void> = new EventEmitter<void>();
 
