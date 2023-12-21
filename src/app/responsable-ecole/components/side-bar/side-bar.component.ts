@@ -27,6 +27,8 @@ export class SideBarComponent {
   sidebarLinks = [
     { routerLink: '/ambassador', iconClass: 'fas fa-tachometer-alt', title: 'Dashboard' },
     { routerLink: '/ambassador/school-needs-management', iconClass: 'fas fa-book', title: 'school needs' },
+    { routerLink: '/ambassador/donors', iconClass: 'fas fa-users-cog', title: 'Donors' },
+    { routerLink: '/ambassador/donation', iconClass:"fas fa-hand-holding-usd" , title: 'Donations' },
     { routerLink: '/ambassador/profil', iconClass: 'fas fa-user-circle', title: 'Profil' },
     { routerLink: '/', iconClass: 'fas fa-sign-out-alt', title: 'Sign Out' }
   ];

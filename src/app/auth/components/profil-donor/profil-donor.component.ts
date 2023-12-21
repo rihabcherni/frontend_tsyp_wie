@@ -12,7 +12,7 @@ export class ProfilDonorComponent {
   PhoneNumber: string | undefined;
   EmailAddress: string | undefined;
   FirstName: string | undefined;
-  Address: string | undefined;
+  address: string | undefined;
   Gender: string | undefined;
   Governorate: string | undefined;
 
@@ -26,7 +26,7 @@ export class ProfilDonorComponent {
       firstName: string,
       lastName: string,
       email: string,
-      adresse: string,
+      address: string,
       gender: string,
       governorate: string,
       phoneNumber: string
@@ -51,10 +51,10 @@ export class ProfilDonorComponent {
         console.error('User object is missing email property');
       }
 
-      if ('adresse' in user) {
-        this.Address = user.adresse;
+      if ('address' in user) {
+        this.address = user.address;
       } else {
-        console.error('User object is missing adresse property');
+        console.error('User object is missing address property');
       }
 
       if ('gender' in user) {

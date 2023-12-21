@@ -31,7 +31,7 @@ export class LoginComponent {
       this.link ="/admin"
     }else if(this.authService.getRole()=="Donor"){
       this.link ="/donor"
-    }else if(this.authService.getRole()=="ambassador"){
+    }else if(this.authService.getRole()=="Ambassador"){
       this.link ="/ambassador"
     }
   }
@@ -39,12 +39,16 @@ export class LoginComponent {
     this.authService.login(this.email, this.password).subscribe(
       (response) => {
         const token = response.token;
-        const role = response.role;
+        let role = response.role;
         const user = response.user;
+        if(role==="Ambassador"){
+          const school = response.school;
+          this.authService.setSchool(school);
+        }
         this.authService.setToken(token);
         this.authService.setRole(role);
         this.authService.setUser(user);
-        this.successMessageService.showSuccessMessage(`Login successful ${role+" :" + user?.firstName+" "+ user?.lastName}`);
+        this.successMessageService.showSuccessMessage(`Login successful ${role+" : " + user?.firstName+" "+ user?.lastName}`);
         setTimeout(() => {
          this.getLinkLogin();
          this.router.navigate([this.link]);
@@ -63,6 +67,6 @@ export class LoginComponent {
     this.showSuccessMessage = true;
     setTimeout(() => {
       this.showSuccessMessage = false;
-    }, 3000);
+    }, 4000);
   }
 }

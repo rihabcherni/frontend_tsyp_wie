@@ -24,11 +24,13 @@ import { HomeComponent } from './visiteur/components/home/home.component';
 import { BeDonorComponent } from './auth/components/be-donor/be-donor.component';
 import { BeAmbassadorComponent } from './auth/components/be-ambassador/be-ambassador.component';
 import { DonationsComponent } from './admin/components/donations/donations.component';
+import { DonationsComponent as DonationsComponentRes  } from './responsable-ecole/components/donations/donations.component';
 import { ProfilAdminComponent } from './auth/components/profil-admin/profil-admin.component';
 import { ProfilDonorComponent } from './auth/components/profil-donor/profil-donor.component';
 import { ProfilAmbassadorComponent } from './auth/components/profil-ambassador/profil-ambassador.component';
 import { ForgotPasswordComponent } from './auth/components/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './auth/components/reset-password/reset-password.component';
+import { DonorsComponent } from './responsable-ecole/components/donors/donors.component';
 const routes: Routes = [
   { path: '', component: VisiteurComponent, children:[
       {path:'', component: HomeComponent},
@@ -58,6 +60,8 @@ const routes: Routes = [
     {path:'', component:DashboardResponsableComponent},
     {path:'school-needs-management', component:GestionListeBesoinsEcoleComponent},
     {path:'profil', component:ProfilAmbassadorComponent},
+    {path:'donors', component:DonorsComponent},
+    {path:'donation',component:DonationsComponentRes},
   ] },
   { path: 'donor', component: DonateurComponent, children:[
     {path:'', component:DashboardComponentDonor},

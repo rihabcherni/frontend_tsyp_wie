@@ -118,86 +118,22 @@
           </div>
         </div>
       </div>
-           <div>
-            <div class=" recentCustomers">
-                <div class="cardHeader">
-                    <h2>Recent Donor</h2>
-                </div>
-
-                <table>
-                    <tr>
-                        <td width="60px">
-                            <div class="imgBx"><img src="../../assets/img/customer02.jpg" alt=""></div>
-                        </td>
-                        <td>
-                            <h4>David <br> <span>Italy</span></h4>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td width="60px">
-                            <div class="imgBx"><img src="../../assets/img/visiteur/customer01.jpg" alt=""></div>
-                        </td>
-                        <td>
-                            <h4>Amit <br> <span>India</span></h4>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td width="60px">
-                            <div class="imgBx"><img src="../../assets/img/customer02.jpg" alt=""></div>
-                        </td>
-                        <td>
-                            <h4>David <br> <span>Italy</span></h4>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td width="60px">
-                            <div class="imgBx"><img src="../../assets/img/visiteur/customer01.jpg" alt=""></div>
-                        </td>
-                        <td>
-                            <h4>Amit <br> <span>India</span></h4>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td width="60px">
-                            <div class="imgBx"><img src="../../assets/img/customer02.jpg" alt=""></div>
-                        </td>
-                        <td>
-                            <h4>David <br> <span>Italy</span></h4>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td width="60px">
-                            <div class="imgBx"><img src="../../assets/img/visiteur/customer01.jpg" alt=""></div>
-                        </td>
-                        <td>
-                            <h4>Amit <br> <span>India</span></h4>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td width="60px">
-                            <div class="imgBx"><img src="../../assets/img/visiteur/customer01.jpg" alt=""></div>
-                        </td>
-                        <td>
-                            <h4>David <br> <span>Italy</span></h4>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td width="60px">
-                            <div class="imgBx"><img src="../../assets/img/customer02.jpg" alt=""></div>
-                        </td>
-                        <td>
-                            <h4>Amit <br> <span>India</span></h4>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-
-           </div>
+      <div class=" recentCustomers">
+        <div class="cardHeader">
+            <h2>Recent Donor</h2>
+            <a [routerLink]="['/admin/donors']" class="btn">View All</a>
+        </div>
+        <div *ngIf="lastDonor && lastDonor.length > 0">
+          <table>
+            <tr *ngFor="let donor of lastDonor">
+                  <td width="60px">
+                      <div class="imgBx"><img src="http://localhost:5000/uploads/userProfile/{{ donor.photo }}" alt=""></div>
+                  </td>
+                  <td>
+                      <h4>{{ donor.firstName}} {{ donor.lastName}} <br> <span>{{ donor.governorate }}</span></h4>
+                  </td>
+            </tr>
+          </table>
+        </div>
+    </div>
     </div>

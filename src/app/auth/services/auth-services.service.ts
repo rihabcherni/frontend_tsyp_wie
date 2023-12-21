@@ -10,6 +10,7 @@ export class AuthServicesService {
   private tokenKey = 'authToken';
   private roleKey = 'role';
   private userKey = 'user';
+  private schoolKey = 'school';
 
   setToken(token: string): void {
     localStorage.setItem(this.tokenKey, token);
@@ -40,9 +41,25 @@ export class AuthServicesService {
     localStorage.setItem(this.userKey, userString);
   }
 
+  setSchool(school: object): void {
+    const schoolString = JSON.stringify(school);
+    localStorage.setItem(this.schoolKey, schoolString);
+  }
+
   getUser(): object | null {
     const userString = localStorage.getItem(this.userKey);
     return userString ? JSON.parse(userString) : null;
+  }
+
+  getSchool(): object | null {
+    const schoolString = localStorage.getItem(this.schoolKey);
+    return schoolString ? JSON.parse(schoolString) : null;
+  }
+
+  getSchoolId(): string | null {
+    const schoolString = localStorage.getItem(this.schoolKey);
+    const schoolObject =  schoolString ? JSON.parse(schoolString) : null;
+    return schoolObject ? schoolObject._id : null;
   }
 
   getUserId(): string | null {

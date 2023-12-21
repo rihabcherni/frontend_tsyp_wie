@@ -25,7 +25,7 @@ export class ProfilAmbassadorComponent {
       firstName: string,
       lastName: string,
       email: string,
-      adresse: string,
+      address: string,
       gender: string,
       governorate: string,
       phoneNumber: string
@@ -50,10 +50,10 @@ export class ProfilAmbassadorComponent {
         console.error('User object is missing email property');
       }
 
-      if ('adresse' in user) {
-        this.Address = user.adresse;
+      if ('address' in user) {
+        this.Address = user.address;
       } else {
-        console.error('User object is missing adresse property');
+        console.error('User object is missing address property');
       }
 
       if ('gender' in user) {

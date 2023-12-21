@@ -46,7 +46,7 @@ export class GestionEcoleComponent {
       (data: any) => {
         const formattedSchools = data.schoolsWithAmbassadors.map((schoolWithAmbassadors: any) => {
           const formattedAmbassadors = schoolWithAmbassadors.ambassadors.map((ambassador: any) => {
-            return { ...ambassador, /* Ajoutez ici d'autres propriétés si nécessaire */ };
+            return { ...ambassador};
           });
           return {
             ...schoolWithAmbassadors.school,

@@ -24,3 +24,6 @@ select {
 .form-floating select:hover {
   border: 1px solid var(--primary);
 }
+textarea.form-control {
+  height: 100px;
+}

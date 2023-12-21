@@ -14,7 +14,6 @@
                   <td>Address</td>
                   <td>Phone Number</td>
                   <td>Time Added</td>
-                  <td >Action</td>
               </tr>
           </thead>
           <tbody>
@@ -27,7 +26,6 @@
                 <td>{{ d.address }}, {{ d.governorate }}</td>
                 <td>{{ d.phoneNumber }}</td>
                 <td>{{ d.timeAdded }}</td>
-                <td><button class="btn-supprimer-donation" (click)="deleteDonor(d._id)">Delete</button></td>
               </tr>
           </tbody>
       </table>

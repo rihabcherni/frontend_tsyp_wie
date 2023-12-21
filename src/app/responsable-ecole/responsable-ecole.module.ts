@@ -6,6 +6,8 @@ import { GestionListeBesoinsEcoleComponent } from './components/gestion-liste-be
 import { DashboardResponsableComponent } from './components/dashboard-responsable/dashboard-responsable.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { PopGestionComponent } from './components/gestion-liste-besoins-ecole/pop-gestion/pop-gestion.component';
+import { DonationsComponent } from './components/donations/donations.component';
+import { DonorsComponent } from './components/donors/donors.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +16,8 @@ import { PopGestionComponent } from './components/gestion-liste-besoins-ecole/po
     DashboardResponsableComponent,
     SideBarComponent,
     PopGestionComponent,
+    DonationsComponent,
+    DonorsComponent,
   ],
   imports: [
     CommonModule,

@@ -43,14 +43,14 @@
                         </div>
                         <div class="col-4">
                             <div class="border-top border-3 border-warning pt-2">
-                                <h6 class="text-warning mb-2">Class:<small>{{ cause.nbr_class }}</small></h6>
+                                <h6 class="text-warning mb-2">Class:<small>{{ cause.nbr_classes }}</small></h6>
                             </div>
                         </div>
                     </div>
                     <h6 class="mb-1"> <b class="text-info mb-1">Needs: </b><b class="text-primary mb-1">{{ cause.type_needs }}</b></h6>
                   <div> {{ cause.needs }}</div>
                     <div class="text-center mt-3">
-                        <a href="#" class="bg-primary text-white rounded-pill py-2 px-3">More Info...</a>
+                        <a [routerLink]="['/be-ambassador']" class="bg-primary text-white rounded-pill py-2 px-3">More Info...</a>
                     </div>
                 </div>
             </div>
