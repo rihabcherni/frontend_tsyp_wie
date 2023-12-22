@@ -1,6 +1,6 @@
 <div class=" details row ">
   <div class="cardHeader">
-      <h2>Donations</h2>
+      <h2>List of Donations</h2>
   </div>
 </div>
 
@@ -11,8 +11,9 @@
         <div class="row-accordion">
           <div class="border-right"><b>Donation To :</b> {{ d.school.name }}</div>
           <div class="border-right"><b>Donation Date :</b> {{ d.formattedDate }}</div>
-          <div>
-            <b>  Donor: </b>{{ d.donor.firstName }} {{ d.donor.lastName }} <br> {{ d.donor.email }}
+          <div class="donor-detail">
+           <div><img class="img-fluid rounded-5" width="50px" height="50px" src="http://localhost:5000/uploads/userProfile/{{ d.donor.photo }}" alt="{{ d.donor.firstName }}"> </div>
+            <div><b>  Donor: </b>{{ d.donor.firstName }} {{ d.donor.lastName }} <br> {{ d.donor.email }}</div>
           </div>
         </div>
       </button>

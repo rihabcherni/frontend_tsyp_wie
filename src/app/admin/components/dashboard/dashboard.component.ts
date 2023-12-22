@@ -19,6 +19,8 @@ export class DashboardComponent implements OnInit {
   donationStatistics: any = [];
   successMessage: string = '';
   lineChartData: any = {};
+  lastSchool: any = [];
+  showSuccessMessage: boolean = false;
 
   constructor(private successMessageService: SuccessLoginMessageService,private statisticsService: AdminDashService, private datePipe: DatePipe) {
     this.successMessageService.successMessage$.subscribe((message) => {
@@ -31,6 +33,7 @@ export class DashboardComponent implements OnInit {
     this.getDonationStatisticsByYear();
     this.getlastDonationAdmin();
     this.getlastDonorAdmin();
+    this.getlastSchoolDonor();
   }
   createChart() {
     const labels = this.schoolStatistics.map((stat: any) => stat.year);
@@ -115,7 +118,6 @@ export class DashboardComponent implements OnInit {
     this.statisticsService.getStatistics().subscribe(
       (data) => {
         this.statistics = data.data;
-        console.log(data.data);
       },
       (error) => {
         console.error('Error fetching statistics:', error);
@@ -155,7 +157,6 @@ export class DashboardComponent implements OnInit {
           return { ...donation, dateDonation: this.formatDate(donation.dateDonation) };
         });
         this.lastDonation = formattedDonations;
-        console.log(formattedDonations)
       },
       (error) => {
         console.error('Error fetching statistics:', error);
@@ -169,14 +170,25 @@ export class DashboardComponent implements OnInit {
           return { ...donor, timeAdded: this.formatDate(donor.timeAdded) };
         });
         this.lastDonor = formattedDonors;
-        console.log(formattedDonors)
       },
       (error) => {
         console.error('Error fetching statistics:', error);
       }
     );
   }
-
+  getlastSchoolDonor() {
+    this.statisticsService.getlastSchoolDonor().subscribe(
+      (data) => {
+        const formattedSchools =(Array.isArray(data) ? data : []).map((School: any) => {
+          return { ...School, dateConfirmation: this.formatDate(School.dateConfirmation) };
+        });
+        this.lastSchool = formattedSchools;
+      },
+      (error) => {
+        this.successMessageService.showSuccessMessage(`Error fetching statistics schools: ${error}`);
+      }
+    );
+  }
   private formatDate(date: string): string {
     return this.datePipe.transform(new Date(date), 'dd-MM-yyyy HH:mm') || '';
   }

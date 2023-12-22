@@ -856,11 +856,10 @@ body {
   font-size: 14px;
   font-weight: 500;
 }
-
  .recentCustomers {
   position: relative;
   display: grid;
-  min-height: 500px;
+  min-height: 300px;
   padding: 20px;
   background: var(--white);
   box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
@@ -882,7 +881,7 @@ body {
   object-fit: cover;
 }
 .recentCustomers table tr td {
-  padding: 12px 10px;
+  padding: 5px 10px;
 }
 .recentCustomers table tr td h4 {
   font-size: 16px;
@@ -1173,27 +1172,42 @@ border-right: 2px  solid  #9Ca1a6 !important;
 background-color: white;
 }
 .btn-confirmer{
-background-color: rgb(53, 220, 106);
-width: 90px;
-height: 35px;
-color: white;
-border-radius: 5px;
-border: none;
-margin-right: 15px;
-}
+  background-color: rgb(53, 220, 106);
+  width: 50px;
+  height: 35px;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  margin-right: 5px;
+  }
 
-.btn-confirmer:hover{
-cursor: pointer;
-background-color: white;
-color:rgb(1, 97, 1);
-border:rgb(53, 220, 106) 3px solid;
-border-radius: 5px;
+  .btn-confirmer:hover{
+  cursor: pointer;
+  background-color: white;
+  color:green;
+  border:rgb(53, 220, 106) 3px solid;
+  border-radius: 5px;
 
-}
+  }
 
+  .btn-infos{
+    background-color: deepskyblue;
+    width: 50px;
+    height: 35px;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    margin-right: 5px;
+    }
 
+    .btn-infos:hover{
+    cursor: pointer;
+    background-color: white;
+    color:dodgerblue;
+    border:dodgerblue 3px solid;
+    border-radius: 5px;
 
-
+    }
 .NouvDetails .recentOrders {
 position: relative;
 display: grid;

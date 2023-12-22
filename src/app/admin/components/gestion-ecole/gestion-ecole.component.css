@@ -30,17 +30,15 @@
   color: rgb(255, 255, 255);
   font-size: 14px !important;
 }
-.schoolname,.schoollocation{
-  display: flex;
-  flex-direction: row;
-}
+
 .cardtitle{
   font-size: 1.25rem;
-  font-family: "Inter",sans-serif;
   line-height: 1.2;
-  color: #4f1f9c;
+  color: #8e59e2;
 }
-
+.cardtext{
+  font-weight: bold;
+}
 .btn:focus{
   box-shadow: none;
 }

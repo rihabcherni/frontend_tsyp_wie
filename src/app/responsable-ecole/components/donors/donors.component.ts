@@ -22,7 +22,6 @@ export class DonorsComponent {
           return { ...donor, timeAdded: this.formatDate(donor.timeAdded) };
         });
         this.donor = formattedDonors;
-        console.log('Donors:', formattedDonors);
       },
       (error: any) => {
         console.error('Error fetching Donors:', error);

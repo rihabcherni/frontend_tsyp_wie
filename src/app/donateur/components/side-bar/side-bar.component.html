@@ -8,7 +8,13 @@
       </a>
     </li>
     <li *ngFor="let link of sidebarLinks" [ngClass]="{'active': link.routerLink === activeLink}">
-      <a [routerLink]="[link.routerLink]" (click)="activeLink = link.routerLink">
+      <a [routerLink]="[link.routerLink]" *ngIf="link.title === 'Sign Out'" (click)="logout()">
+        <span class="icon">
+          <i [class]="link.iconClass"></i>
+        </span>
+        <span class="title">{{ link.title }}</span>
+      </a>
+      <a [routerLink]="[link.routerLink]"  *ngIf="link.title !== 'Sign Out'"  (click)="activeLink = link.routerLink">
         <span class="icon">
           <i [class]="link.iconClass"></i>
         </span>

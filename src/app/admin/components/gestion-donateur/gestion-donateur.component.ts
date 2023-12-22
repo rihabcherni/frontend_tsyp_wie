@@ -22,7 +22,6 @@ export class GestionDonateurComponent {
           return { ...donor, timeAdded: this.formatDate(donor.timeAdded) };
         });
         this.donor = formattedDonors;
-        console.log('Donors:', formattedDonors);
       },
       (error: any) => {
         console.error('Error fetching Donors:', error);
@@ -39,7 +38,6 @@ export class GestionDonateurComponent {
     if (isConfirmed) {
       this.donorService.deleteDonor(id).subscribe(
         () => {
-          console.log(`Donor with ID ${id} deleted successfully`);
           alert('Donor deleted successfully');
           this.getAllDonor();
         },

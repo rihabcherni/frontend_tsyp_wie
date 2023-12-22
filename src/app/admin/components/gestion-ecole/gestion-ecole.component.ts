@@ -11,18 +11,16 @@ export class GestionEcoleComponent {
   school: any[] = [];
   demande: any[] = [];
   constructor(private schoolService: GestionSchoolService, private datePipe: DatePipe) { }
-
   ngOnInit(): void {
     this.getAllSchool();
     this.getAllSchoolsDemande();
   }
-
   getAllSchool(): void {
     this.schoolService.getAllSchool().subscribe(
       (data: any) => {
         const formattedSchools = data.schoolsWithAmbassadors.map((schoolWithAmbassadors: any) => {
           const formattedAmbassadors = schoolWithAmbassadors.ambassadors.map((ambassador: any) => {
-            return { ...ambassador, /* Ajoutez ici d'autres propriétés si nécessaire */ };
+            return { ...ambassador, };
           });
 
           return {
@@ -31,16 +29,13 @@ export class GestionEcoleComponent {
             ambassadors: formattedAmbassadors,
           };
         });
-
         this.school = formattedSchools;
-        console.log('schools with ambassadors:', formattedSchools);
       },
       (error: any) => {
         console.error('Error fetching schools:', error);
       }
     );
   }
-
   getAllSchoolsDemande(): void {
     this.schoolService.getAllSchoolsDemande().subscribe(
       (data: any) => {
@@ -54,9 +49,7 @@ export class GestionEcoleComponent {
             ambassadors: formattedAmbassadors,
           };
         });
-
         this.demande = formattedSchools;
-        console.log('schools with ambassadors:', formattedSchools);
       },
       (error: any) => {
         console.error('Error fetching schools:', error);
@@ -68,13 +61,12 @@ export class GestionEcoleComponent {
   }
   deleteSchool(id: string): void {
     const isConfirmed = window.confirm('Are you sure you want to delete this school?');
-
     if (isConfirmed) {
       this.schoolService.deleteSchool(id).subscribe(
         () => {
-          console.log(`school with ID ${id} deleted successfully`);
-          alert('school deleted successfully');
+          alert('school and ambassador accept successfully');
           this.getAllSchool();
+          this.getAllSchoolsDemande();
         },
         (error: any) => {
           console.error(`Error deleting school with ID ${id}:`, error);
@@ -83,7 +75,21 @@ export class GestionEcoleComponent {
       );
     }
   }
-
+  acceptSchool(id: string): void {
+    const isConfirmed = window.confirm('Are you sure you want to accept this school?');
+    if (isConfirmed) {
+      this.schoolService.acceptSchool(id).subscribe(
+        () => {
+          alert('school and ambassador accept successfully');
+          this.getAllSchool();
+          this.getAllSchoolsDemande();
+        },
+        (error: any) => {
+          alert(`Error accept school with ID ${id}`);
+        }
+      );
+    }
+  }
   selectedSchool: any;
   onNoClick(): void {
     const modal = document.getElementById('modal');
@@ -91,7 +97,6 @@ export class GestionEcoleComponent {
       modal.style.display = 'none';
     }
   }
-
   openDetailsDialog(): void {
     const modal = document.getElementById('modal');
     if (modal) {

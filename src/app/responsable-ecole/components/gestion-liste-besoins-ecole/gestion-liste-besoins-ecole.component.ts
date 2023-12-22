@@ -25,24 +25,18 @@ export class GestionListeBesoinsEcoleComponent {
   addSchool(type: string, quantity: string): void {
     this.typeNeeds = type;
     this.quantity = quantity;
-    console.log('Type: ', this.typeNeeds);
-    console.log('Quantity: ', this.quantity);
     this.selectedItemsSchool.push({ typeNeeds: this.typeNeeds, quantity: this.quantity });
     this.openDetailsModal();
   }
   addCloths(type: string, quantity: string): void {
     this.typeNeeds = type;
     this.quantity = quantity;
-    console.log('Type: ', this.typeNeeds);
-    console.log('Quantity: ', this.quantity);
     this.selectedItemsClothes.push({ typeNeeds: this.typeNeeds, quantity: this.quantity });
     this.openDetailsModal();
   }
   addMoney(type: string, quantity: string): void {
     this.typeNeeds = type;
     this.quantity = quantity;
-    console.log('Type: ', this.typeNeeds);
-    console.log('Quantity: ', this.quantity);
     this.selectedItemsMoney.push({ uantity: this.quantity });
     this.openDetailsModal();
   }

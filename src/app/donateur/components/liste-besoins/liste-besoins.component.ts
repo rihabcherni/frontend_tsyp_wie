@@ -34,7 +34,6 @@ export class ListeBesoinsComponent {
         });
 
         this.school = formattedSchools;
-        console.log('schools with ambassadors:', formattedSchools);
       },
       (error: any) => {
         console.error('Error fetching schools:', error);
@@ -55,9 +54,7 @@ export class ListeBesoinsComponent {
             ambassadors: formattedAmbassadors,
           };
         });
-
         this.demande = formattedSchools;
-        console.log('schools with ambassadors:', formattedSchools);
       },
       (error: any) => {
         console.error('Error fetching schools:', error);
@@ -73,7 +70,6 @@ export class ListeBesoinsComponent {
     if (isConfirmed) {
       this.schoolService.deleteSchool(id).subscribe(
         () => {
-          console.log(`school with ID ${id} deleted successfully`);
           alert('school deleted successfully');
           this.getAllSchool();
         },
@@ -113,15 +109,14 @@ export class ListeBesoinsComponent {
     nbr_teachers: 0,
     type_needs: '',
     needs: ''
-  };  
+  };
   onNoClick2(): void {
     const modal = document.getElementById('modal2');
     if (modal) {
       modal.style.display = 'none';
     }
-    console.log("rgdth");
   }
-  
+
   openDetailsDialog2(): void {
     const modal = document.getElementById('modal2');
     if (modal) {
@@ -148,18 +143,10 @@ export class ListeBesoinsComponent {
     if (modal) {
       modal.style.display = 'none';
     }
-    console.log("3");
   }
-
-
-
   onSubmit() {
-    // Vous pouvez traiter les données ici, par exemple, les envoyer à un service ou les afficher
-    console.log('Submitted:', this.selectedSchool3);
-    // Réinitialiser les données après la soumission
     this.resetForm();
   }
-
   resetForm() {
     this.selectedSchool3 = {
       name: '',

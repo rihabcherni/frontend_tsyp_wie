@@ -11,13 +11,16 @@ import { AuthServicesService } from 'src/app/auth/services/auth-services.service
 export class SideBarComponent {
   isDropdownOpen: boolean = false;
   toggleDropdown(): void {
-    console.log('Toggle dropdown method called');
     this.isDropdownOpen = !this.isDropdownOpen;
   }
 
   logout(): void {
     this.router.navigate(['/']);
     this.isDropdownOpen = false;
+    this.authService.removeRole();
+    this.authService.removeToken();
+    this.authService.removeUser();
+    this.authService.removeSchool();
   }
   changePassword(): void {
     this.router.navigate(['/ambassador/profil']);

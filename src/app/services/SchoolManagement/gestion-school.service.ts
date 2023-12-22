@@ -32,4 +32,7 @@ export class GestionSchoolService {
   deleteSchool(id: string): Observable<any> {
     return this.http.delete(`${this.baseUrl}/deleteSchool/${id}`);
   }
+  acceptSchool(id: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/acceptSchool/${id}`);
+  }
 }

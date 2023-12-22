@@ -67,10 +67,8 @@ export class BeAmbassadorComponent {
       formData1.append('nbr_classes', this.school.nbr_classes);
       formData1.append('type_needs', this.school.type_needs);
       formData1.append('needs', this.school.needs);
-      console.log('Step 1 submitted school:', this.school);
       this.schoolService.addSchool(formData1).subscribe(
         (response) => {
-          console.log('School added successfully:', response);
           const school = response.school;
           this.authService.setSchool(school);
           const schoolReference = this.authService.getSchool() as {
@@ -80,7 +78,6 @@ export class BeAmbassadorComponent {
           if (schoolReference) {
             if ('_id' in schoolReference) {
               this.school_id = schoolReference._id;
-              console.log('school :'+schoolReference._id);
             } else {
               console.error('school object is missing id property');
             }
@@ -95,7 +92,6 @@ export class BeAmbassadorComponent {
         }
       );
     } else if (this.currentStep === 2) {
-      console.log('Step 2 submitted:', this.user);
       const formData = new FormData();
       formData.append('photo', this.user.photo);
       formData.append('gender', this.user.gender);
@@ -110,7 +106,6 @@ export class BeAmbassadorComponent {
       formData.append('ReferencedSchool', this.school_id);
       this.ambassadorService.addAmbassador(formData).subscribe(
         (response) => {
-          console.log('Ambassador added successfully:', response);
           const token = response.token;
           const role = response.role;
           const user = response.newAmbassador;

@@ -28,5 +28,7 @@ export class AdminDashService {
   getlastDonorAdmin(): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/lastDonorAdmin`);
   }
+  getlastSchoolDonor(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/lastSchoolDonor`);
+  }
 }
-

@@ -10,6 +10,7 @@ import { SchoolNeedsListManagementComponent } from './components/school-needs-li
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { DonationsComponent } from './components/donations/donations.component';
 import { DatePipe } from '@angular/common';
+import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { DatePipe } from '@angular/common';
     SchoolNeedsListManagementComponent,
     SideBarComponent,
     DonationsComponent,
+    SnackBarComponent,
   ],
   imports: [
     CommonModule,

@@ -14,6 +14,12 @@
   text-align: center;
   align-items: center;
 }
+.donor-detail{
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 10px;
+  margin: 0 20px;
+}
 .accordion b{
   color: blueviolet;
 }

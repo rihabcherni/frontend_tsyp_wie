@@ -62,7 +62,6 @@ export class BeDonorComponent {
     formData.append('governorate', this.user.governorate);
     this.donorService.addDonor(formData).subscribe(
       (response) => {
-        console.log('Donor added successfully:', response);
         const token = response.token;
         const role = response.role;
         const user = response.newDonor;

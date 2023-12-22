@@ -24,7 +24,6 @@ export class DonationsComponent {
           return { ...donation, formattedDate: this.formatDate(donation.dateDonation) };
         });
         this.donation = formattedDonations;
-        console.log('Donations:', formattedDonations);
       },
       (error: any) => {
         console.error('Error fetching donations:', error);

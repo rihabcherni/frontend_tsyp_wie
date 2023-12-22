@@ -33,7 +33,6 @@ export class DashboardResponsableComponent {
     this.statisticsService.getStatistics().subscribe(
       (data) => {
         this.statistics = data.data;
-        console.log(data.data);
       },
       (error) => {
         console.error('Error fetching statistics:', error);
@@ -47,7 +46,6 @@ export class DashboardResponsableComponent {
           return { ...donation, dateDonation: this.formatDate(donation.dateDonation) };
         });
         this.lastDonation = formattedDonations;
-        console.log(formattedDonations)
       },
       (error) => {
         console.error('Error fetching statistics:', error);
@@ -61,7 +59,6 @@ export class DashboardResponsableComponent {
           return { ...donor, timeAdded: this.formatDate(donor.timeAdded) };
         });
         this.lastDonor = formattedDonors;
-        console.log(formattedDonors)
       },
       (error) => {
         console.error('Error fetching statistics:', error);

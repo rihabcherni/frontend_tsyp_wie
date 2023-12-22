@@ -19,11 +19,6 @@ export class AuthServicesService {
   getToken(): string | null {
     return localStorage.getItem(this.tokenKey);
   }
-
-  removeToken(): void {
-    localStorage.removeItem(this.tokenKey);
-  }
-
   setRole(role: string): void {
     localStorage.setItem(this.roleKey, role);
   }
@@ -31,11 +26,6 @@ export class AuthServicesService {
   getRole(): string | null {
     return localStorage.getItem(this.roleKey);
   }
-
-  removeRole(): void {
-    localStorage.removeItem(this.roleKey);
-  }
-
   setUser(user: object): void {
     const userString = JSON.stringify(user);
     localStorage.setItem(this.userKey, userString);
@@ -80,7 +70,15 @@ export class AuthServicesService {
   removeUser(): void {
     localStorage.removeItem(this.userKey);
   }
-
+  removeSchool(): void {
+    localStorage.removeItem(this.schoolKey);
+  }
+  removeRole(): void {
+    localStorage.removeItem(this.roleKey);
+  }
+  removeToken(): void {
+    localStorage.removeItem(this.tokenKey);
+  }
   constructor(private http: HttpClient) {}
 
   login(email: string, password: string): Observable<any> {

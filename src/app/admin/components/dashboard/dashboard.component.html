@@ -1,5 +1,4 @@
 <div>
-  <!-- =========================== cards ======================= -->
   <div *ngIf="statistics" class="cardsBox">
     <div class="cardDash">
       <div class="cardbody">
@@ -9,8 +8,8 @@
     </div>
     <div class="cardDash">
           <div class="cardbody">
-            <h4 style="color:#fa7e71;"> {{ statistics?.nb_ambassadors }}  <i class="fas fa-users" style="margin-left: 180px;"></i></h4>
-            <p>Ambassadorss</p>
+            <h4 style="color:#fa7e71;"> {{ statistics?.nb_ambassadors }}  <i class="fas fa-users" style="margin-left: 160px;"></i></h4>
+            <p>Ambassadors</p>
           </div>
     </div>
     <div class="cardDash">
@@ -26,23 +25,15 @@
             </div>
     </div>
   </div>
-
-
-  <!-- ================ Order Details List ================= -->
   <div class="details">
     <div>
-      <div class="row mb-3">
-        <div class="col-md-6">
+      <div class="mb-3" style="display: grid; grid-template-columns: repeat(2,1fr); gap: 8px; margin: 0 -10px;">
           <div id="LineChart" *ngIf="schoolStatistics">
             <canvas id="statisticsLineChart"></canvas>
           </div>
-
-        </div>
-        <div class="col-md-6" >
           <div id="BarChart" >
               <canvas id="statisticsBarChartDonation" ></canvas>
           </div>
-        </div>
       </div>
       <div class="row">
         <div class=" recentOrders">
@@ -74,24 +65,41 @@
       </div>
     </div>
     <div>
-          <div class=" recentCustomers">
-              <div class="cardHeader">
-                  <h2>Recent Donor</h2>
-                  <a [routerLink]="['/admin/donors']" class="btn">View All</a>
-              </div>
-              <div *ngIf="lastDonor && lastDonor.length > 0">
-                <table>
-                  <tr *ngFor="let donor of lastDonor">
-                        <td width="60px">
-                            <div class="imgBx"><img src="http://localhost:5000/uploads/userProfile/{{ donor.photo }}" alt=""></div>
-                        </td>
-                        <td>
-                            <h4>{{ donor.firstName}} {{ donor.lastName}} <br> <span>{{ donor.governorate }}</span></h4>
-                        </td>
-                  </tr>
-                </table>
-              </div>
-          </div>
+      <div class="recentCustomers mb-2">
+        <div class="cardHeader">
+            <h4>Recent Donor</h4>
+            <a [routerLink]="['/admin/donors']" class="btn">View All</a>
+        </div>
+        <div *ngIf="lastDonor && lastDonor.length > 0">
+          <table>
+            <tr *ngFor="let donor of lastDonor"  style="margin: 0px !important;">
+                <td width="60px">
+                  <div class="imgBx"><img src="http://localhost:5000/uploads/userProfile/{{ donor.photo }}" alt=""></div>
+                </td>
+                <td>
+                  <h4>{{ donor.firstName}} {{ donor.lastName}} <br> <span>{{ donor.governorate }}</span></h4>
+                </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class=" recentCustomers">
+        <div class="cardHeader">
+            <h4>Schools need help</h4>
+            <a [routerLink]="['/donor/schools-needs']" class="btn">View All</a>
+        </div>
+        <div *ngIf="lastSchool && lastSchool.length > 0">
+          <table>
+            <tr *ngFor="let school of lastSchool">
+                <td>
+                  <h4>{{ school.name }} (<span>{{ school.governorate }}) </span></h4>
+                  <span style="font-size: 12px;"><b>Needs: </b>{{ school.type_needs }} </span>
+                </td>
+            </tr>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
+  <app-snack-bar [message]="successMessage" [show]="showSuccessMessage"></app-snack-bar>
 </div>

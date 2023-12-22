@@ -76,10 +76,9 @@ export class DashboardComponent {
     this.statisticsService.getStatistics(DonorId).subscribe(
       (data) => {
         this.statistics = data.data;
-        console.log(data.data);
       },
       (error) => {
-        console.error('Error fetching statistics:', error);
+        this.successMessageService.showSuccessMessage(`Error fetching statistics: ${error}`);
       }
     );
   }
@@ -92,7 +91,7 @@ export class DashboardComponent {
         }, 500);
       },
       (error) => {
-        console.error('Error fetching donation statistics by year:', error);
+        this.successMessageService.showSuccessMessage(`Error fetching donation statistics by year: ${error}`);
       }
     );
   }
@@ -103,10 +102,9 @@ export class DashboardComponent {
           return { ...donation, dateDonation: this.formatDate(donation.dateDonation) };
         });
         this.lastDonation = formattedDonations;
-        console.log(formattedDonations)
       },
       (error) => {
-        console.error('Error fetching statistics:', error);
+        this.successMessageService.showSuccessMessage(`Error fetching statistics donors: ${error}`);
       }
     );
   }
@@ -117,10 +115,9 @@ export class DashboardComponent {
           return { ...School, dateConfirmation: this.formatDate(School.dateConfirmation) };
         });
         this.lastSchool = formattedSchools;
-        console.log(formattedSchools)
       },
       (error) => {
-        console.error('Error fetching statistics:', error);
+        this.successMessageService.showSuccessMessage(`Error fetching statistics schools: ${error}`);
       }
     );
   }

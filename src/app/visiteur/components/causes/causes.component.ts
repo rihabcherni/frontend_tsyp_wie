@@ -20,7 +20,7 @@ export class CausesComponent {
       (data: any) => {
         const formattedSchools = data.schoolsWithAmbassadors.map((schoolWithAmbassadors: any) => {
           const formattedAmbassadors = schoolWithAmbassadors.ambassadors.map((ambassador: any) => {
-            return { ...ambassador, /* Ajoutez ici d'autres propriétés si nécessaire */ };
+            return { ...ambassador, };
           });
 
           return {
@@ -29,9 +29,7 @@ export class CausesComponent {
             ambassadors: formattedAmbassadors,
           };
         });
-
         this.school = formattedSchools;
-        console.log('schools with ambassadors:', formattedSchools);
       },
       (error: any) => {
         console.error('Error fetching schools:', error);

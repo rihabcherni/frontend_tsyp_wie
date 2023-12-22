@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthServicesService } from '../../services/auth-services.service';
-import { Router, NavigationEnd } from '@angular/router';
-import { filter } from 'rxjs/operators';
+import { Router } from '@angular/router';
 import { SuccessLoginMessageService } from '../../services/success-login-message.service';
 @Component({
   selector: 'app-login',
@@ -54,11 +53,9 @@ export class LoginComponent {
          this.router.navigate([this.link]);
         }, 2000);
         this.loginSuccess = true;
-        console.log('Login successful', response);
       },
       (error) => {
-        console.log(this.email, this.password);
-        console.log('Login error', error);
+        this.successMessageService.showSuccessMessage(`Login error ${error}`);
       }
     );
   }
