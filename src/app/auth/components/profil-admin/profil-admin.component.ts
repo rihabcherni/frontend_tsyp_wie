@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthServicesService } from '../../services/auth-services.service';
 import { Router } from '@angular/router';
+import { GestionAdminService } from 'src/app/services/AdminManagement/gestion-admin.service';
 
 @Component({
   selector: 'app-profil-admin',
@@ -8,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./profil-admin.component.css']
 })
 export class ProfilAdminComponent implements OnInit {
+  Id: string | undefined;
   LastName: string | undefined;
   PhoneNumber: string | undefined;
   EmailAddress: string | undefined;
@@ -15,14 +17,16 @@ export class ProfilAdminComponent implements OnInit {
   address: string | undefined;
   Gender: string | undefined;
   Governorate: string | undefined;
-
+  newAdmin: any;
   constructor(
     private authService: AuthServicesService,
+    private adminService: GestionAdminService,
     private router: Router,
   ) {}
 
   ngOnInit(): void {
     const user = this.authService.getUser() as {
+      _id: string,
       firstName: string,
       lastName: string,
       email: string,
@@ -33,6 +37,11 @@ export class ProfilAdminComponent implements OnInit {
     } | null;
 
     if (user) {
+      if ('_id' in user) {
+        this.Id = user._id;
+      } else {
+        console.error('User object is missing id property');
+      }
       if ('firstName' in user) {
         this.FirstName = user.firstName;
       } else {
@@ -77,5 +86,29 @@ export class ProfilAdminComponent implements OnInit {
     } else {
       console.error('User object is null');
     }
+    this.newAdmin = {
+      firstName: this.FirstName,
+      lastName: this.LastName,
+      email: this.EmailAddress,
+      address: this.address,
+      gender: this.Gender,
+      governorate: this.Governorate,
+      phoneNumber: this.PhoneNumber
+    };
+  }
+
+  updateAdminProfile(): void {
+    const adminIdToUpdate =this.Id || "";
+    this.adminService.updateAdmin(adminIdToUpdate, this.newAdmin).subscribe(
+      (response: any) => {
+        console.log('Profil admin mis à jour avec succès :', response);
+        this.authService.setUser(this.newAdmin);
+
+      },
+      (error: any) => {
+        console.error('Erreur lors de la mise à jour du profil admin :', error);
+
+      }
+    );
   }
 }
