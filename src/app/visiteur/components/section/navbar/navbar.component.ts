@@ -19,13 +19,13 @@ export class NavbarComponent {
   toggleDropdown(): void {
     this.isDropdownOpen = !this.isDropdownOpen;
   }
-
   logout(): void {
     this.router.navigate(['/']);
     this.isDropdownOpen = false;
     this.authService.removeRole();
     this.authService.removeToken();
     this.authService.removeUser();
+    this.userId= this.authService.getUser();
   }
   changePassword(): void {
     this.router.navigate(['/donor/profil']);
