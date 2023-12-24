@@ -9,7 +9,7 @@ export class GestionAdminService {
 
   constructor(private http: HttpClient) { }
 
-  getAllAdmin(): Observable<any> {
+  getAllAdmin(): Observable<any> { 
     return this.http.get(`${this.baseUrl}/getAllAdmin`);
   }
 
@@ -27,5 +27,9 @@ export class GestionAdminService {
 
   deleteAdmin(AdminId: string): Observable<any> {
     return this.http.delete(`${this.baseUrl}/deleteAdmin/${AdminId}`);
+  }
+
+  updateAdminPassword(adminId: string, data: any): Observable<any> {
+    return this.http.put(`${this.baseUrl}/updateAdminPassword/${adminId}`, data);
   }
 }

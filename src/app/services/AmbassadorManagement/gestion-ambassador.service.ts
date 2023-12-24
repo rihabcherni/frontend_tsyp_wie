@@ -10,7 +10,7 @@ export class GestionAmbassadorService {
   constructor(private http: HttpClient) { }
   getAllAmbassador(): Observable<any> {
     return this.http.get(`${this.baseUrl}/getAmbassador`);
-  }
+  } 
   getAmbassador(id: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/getAmbassador/${id}`);
   }
@@ -23,5 +23,9 @@ export class GestionAmbassadorService {
   deleteAmbassador(id: string): Observable<any> {
     return this.http.delete(`${this.baseUrl}/deleteAmbassador/${id}`);
   }
+  updateAmbassadorPassword(ambassadorId: string, data: any): Observable<any> {
+    return this.http.put(`${this.baseUrl}/updateAmbassadorPassword/${ambassadorId}`, data);
+  } 
 }
 
+ 

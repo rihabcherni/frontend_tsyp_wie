@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 
 export class GestionDonorService {
-  private baseUrl = 'http://localhost:5000/donor';
+  private baseUrl = 'http://localhost:5000/donor'; 
 
   constructor(private http: HttpClient) { }
 
@@ -27,7 +27,14 @@ export class GestionDonorService {
     return this.http.put(`${this.baseUrl}/updateDonor/${DonorId}`, data);
   }
 
+
+
   deleteDonor(DonorId: string): Observable<any> {
     return this.http.delete(`${this.baseUrl}/deleteDonor/${DonorId}`);
   }
+
+  updateDonorPassword(donorId: string, data: any): Observable<any> {
+    return this.http.put(`${this.baseUrl}/updateDonorPassword/${donorId}`, data);
+  }
 }
+ 
