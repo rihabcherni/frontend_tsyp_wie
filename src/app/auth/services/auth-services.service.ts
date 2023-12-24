@@ -55,7 +55,7 @@ export class AuthServicesService {
   getUserId(): string | null {
     const userString = localStorage.getItem(this.userKey);
     const userObject = userString ? JSON.parse(userString) : null;
-    return userObject ? userObject.id : null;
+    return userObject ? userObject._id : null;
   }
   getUserName(): string | null {
     const userString = localStorage.getItem(this.userKey);

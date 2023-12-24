@@ -18,6 +18,10 @@ export class ProfilAdminComponent implements OnInit {
   Gender: string | undefined;
   Governorate: string | undefined;
   newAdmin: any;
+
+  oldPassword: string = '';
+  newPassword: string = '';
+  confirmPassword: string = '';
   constructor(
     private authService: AuthServicesService,
     private adminService: GestionAdminService,
@@ -87,6 +91,7 @@ export class ProfilAdminComponent implements OnInit {
       console.error('User object is null');
     }
     this.newAdmin = {
+      _id: this.Id,
       firstName: this.FirstName,
       lastName: this.LastName,
       email: this.EmailAddress,
@@ -103,7 +108,7 @@ export class ProfilAdminComponent implements OnInit {
       (response: any) => {
         console.log('Profil admin mis à jour avec succès :', response);
         this.authService.setUser(this.newAdmin);
-
+        alert("Profil updated successefuly");
       },
       (error: any) => {
         console.error('Erreur lors de la mise à jour du profil admin :', error);
@@ -111,4 +116,29 @@ export class ProfilAdminComponent implements OnInit {
       }
     );
   }
+
+  changePassword(): void {
+    if (this.newPassword !== this.confirmPassword) {
+      alert('You have to confirm password.');
+      return;
+    }
+
+    const adminIdToUpdate = this.Id || '';
+    const passwordData = {
+      oldPassword: this.oldPassword,
+      newPassword: this.newPassword
+    };
+
+    this.adminService.updateAdminPassword(adminIdToUpdate, passwordData).subscribe(
+      (response: any) => {
+        console.log('Password updated successfully:', response);
+        alert('Password updated successfully.');
+      },
+      (error: any) => {
+        console.error('Error updating password:', error);
+        alert('Error updating password.');
+
+      }
+    );
+    }
 }

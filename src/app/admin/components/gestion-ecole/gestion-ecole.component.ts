@@ -10,6 +10,8 @@ import { DatePipe } from '@angular/common';
 export class GestionEcoleComponent {
   school: any[] = [];
   demande: any[] = [];
+  Id: string | undefined;
+  name: string | undefined;
   constructor(private schoolService: GestionSchoolService, private datePipe: DatePipe) { }
   ngOnInit(): void {
     this.getAllSchool();

@@ -58,7 +58,7 @@ const routes: Routes = [
   ] },
   { path: 'ambassador', component: ResponsableEcoleComponent ,children:[// responsable-ecole
     {path:'', component:DashboardResponsableComponent},
-    {path:'school-needs-management', component:GestionListeBesoinsEcoleComponent},
+    {path:'school-management', component:GestionListeBesoinsEcoleComponent},
     {path:'profil', component:ProfilAmbassadorComponent},
     {path:'donors', component:DonorsComponent},
     {path:'donation',component:DonationsComponentRes},

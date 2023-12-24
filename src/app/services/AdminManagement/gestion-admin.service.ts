@@ -28,4 +28,8 @@ export class GestionAdminService {
   deleteAdmin(AdminId: string): Observable<any> {
     return this.http.delete(`${this.baseUrl}/deleteAdmin/${AdminId}`);
   }
+
+  updateAdminPassword(adminId: string, data: any): Observable<any> {
+    return this.http.put(`${this.baseUrl}/updateAdminPassword/${adminId}`, data);
+  }
 }

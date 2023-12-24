@@ -8,6 +8,7 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { PopGestionComponent } from './components/gestion-liste-besoins-ecole/pop-gestion/pop-gestion.component';
 import { DonationsComponent } from './components/donations/donations.component';
 import { DonorsComponent } from './components/donors/donors.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { DonorsComponent } from './components/donors/donors.component';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ]
 })
 export class ResponsableEcoleModule { }

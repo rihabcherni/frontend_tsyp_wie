@@ -73,21 +73,25 @@
 </div>
 <div class="profil-container2">
   <div>
-    <div style="display: flex; justify-content: space-between; align-items: center;margin: -2rem 0;">
-      <h4>Change Password</h4>
-      <button class="btn mt-4 mb-4 btn-primary">Change Password</button>
-    </div>
+    <form (ngSubmit)="changePassword()" method="post">
+      <div style="display: flex; justify-content: space-between; align-items: center;margin: -2rem 0;">
+        <h4>Change Password</h4>
+        <button class="btn mt-4 mb-4 btn-primary" >Change Password</button>
+      </div>
       <div class="input">
         <label class="labels">Old Password</label>
-        <input type="password" class="form-control" placeholder="Enter a old password" value="">
+        <input type="password" class="form-control" placeholder="Enter old password" [(ngModel)]="oldPassword" name="oldPassword">
       </div>
       <div class="input">
         <label class="labels">New Password</label>
-        <input type="password" class="form-control" placeholder="Enter a new password" value="">
+        <input type="password" class="form-control" placeholder="Enter new password" [(ngModel)]="newPassword" name="newPassword">
       </div>
       <div class="input">
-          <label class="labels">Confirm Password</label>
-          <input type="password" class="form-control" placeholder="Confirm your new password" value="">
+        <label class="labels">Confirm Password</label>
+        <input type="password" class="form-control" placeholder="Confirm new password" [(ngModel)]="confirmPassword" name="confirmPassword">
       </div>
-    </div>
+
+    </form>
+
+  </div>
 </div>

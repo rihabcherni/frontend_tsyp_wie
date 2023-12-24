@@ -2,10 +2,80 @@
 <!-- Page Header Start -->
 <div class=" py-5 mb-5" style="background: url('../../../../assets/img/visiteur/bg2.jpg') center center repeat-x;">
   <div class="container py-5">
-      <h1 class="display-3 text-white mb-3 animated slideInDown">school needs managements </h1>
+      <h1 class="display-3 text-white mb-3 animated slideInDown">School managements </h1>
   </div>
 </div>
-<!-- Page Header End -->
+<div class="profil-container">
+  <div *ngIf="school">
+  <form (ngSubmit)="updateSchool()" method="post">
+    <div class="row">
+      <div class="col-6"><h3>School Details</h3></div>
+      <div class="col-6 text-end"><button type="submit" class="btn btn-primary mx-4">Edit School</button></div>
+    </div>
+      <div class="row" style="align-items: center;">
+        <div class="col-4">
+          <img class="img-fluid rounded-2" width="450px" height="390px" src="http://localhost:5000/uploads/school/{{ school.image }}" alt="{{ school.name }}"> <br/><br/>
+        </div>
+        <div class="col-8 row">
+          <div class="col-lg-6">
+              <div class="input">
+                  <label class="labels">Name</label>
+                  <input type="text" class="form-control" [value]="school.name" name="name" [(ngModel)]="newSchool.name">
+              </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="input">
+              <label class="labels">Address</label>
+              <input type="text" class="form-control" [value]="school.address" name="address" [(ngModel)]="newSchool.address">
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="input">
+              <label class="labels">Governorate</label>
+              <input type="text" class="form-control" [value]="school.governorate" name="governorate" [(ngModel)]="newSchool.governorate">
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="input">
+              <label class="labels">Niveau</label>
+              <input type="text" class="form-control" [value]="school.niveau" name="niveau" [(ngModel)]="newSchool.niveau">
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="input">
+              <label class="labels">Number students</label>
+              <input type="text" class="form-control" [value]="school.nbr_student" name="nbr_student" [(ngModel)]="newSchool.nbr_student">
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="input">
+              <label class="labels">Number teachers</label>
+              <input type="text" class="form-control" [value]="school.nbr_teachers" name="nbr_teachers" [(ngModel)]="newSchool.nbr_teachers">
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="input">
+              <label class="labels">Number classes</label>
+              <input type="text" class="form-control" [value]="school.nbr_classes" name="nbr_classes" [(ngModel)]="newSchool.nbr_classes">
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="input">
+              <label class="labels">Type Need</label>
+              <input type="text" class="form-control" [value]="school.type_needs" name="type_needs" [(ngModel)]="newSchool.type_needs">
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="input">
+              <label class="labels">Needs</label>
+              <input type="text" class="form-control" [value]="school.needs" name="needs" [(ngModel)]="newSchool.needs">
+            </div>
+          </div>
+        </div>
+      </div>
+  </form>
+  </div>
+</div>
 <div class="container-fluid py-5">
     <div class="container">
       <div class="row align-items">
@@ -17,20 +87,14 @@
 
           <h1 class="mb-4">List your school needs</h1>
           <p>
-            Trough the tabels bellow you can add and edit you school needs
+            Trough the tables bellow you can add and edit you school needs
           </p>
           <div class="row pt-2 pb-4">
-
-            <div class="col-5 col-md-3">
+            <div class="col-8 col-md-8" *ngIf="school.DetailsNeeds && school.DetailsNeeds.length > 0">
+              <h4>Details Needs</h4>
               <ul class="list-inline m-0">
-                <li class="py-2 border-top border-bottom">
-                  <i class="fa fa-check text-primary mr-3"></i> Shool supplies
-                </li>
-                <li class="py-2 border-bottom">
-                  <i class="fa fa-check text-primary mr-3"></i>Clothes
-                </li>
-                <li class="py-2 border-bottom">
-                  <i class="fa fa-check text-primary mr-3"></i>Money
+                <li class="py-2 border-top border-bottom" *ngFor="let detailNeed of school.DetailsNeeds">
+                  <i class="fa fa-check text-primary px-3"></i>  {{ detailNeed.nameNeeds }}
                 </li>
               </ul>
             </div>
@@ -39,16 +103,15 @@
       </div>
     </div>
 </div>
-  <!-- About End -->
-  <div class="container-fluid pt-2">
+  <div class="container-fluid pt-2" *ngIf="school.DetailsNeeds && school.DetailsNeeds.length > 0">
     <div class="row card-footer bg-transparent py-4">
-      <div class="col-lg-4 mb-5">
+      <div class="col-lg-4 mb-5"  *ngFor="let detailNeed of school.DetailsNeeds">
         <div class="card border-0 bg-light shadow-sm pb-2">
           <img class="card-img-top mb-2"  style="height: 185px;"
             src="https://th.bing.com/th/id/OIP.taEP8MkUFfCB97hZZId9_gHaD3?rs=1&pid=ImgDetMain" alt="" />
           <div class="container ">
             <div class="card-body text-center">
-              <h4 >School supplies </h4>
+              <h4 > {{ detailNeed.nameNeeds }} </h4>
               <p >  Provide the list of  supplies that your students needs </p>
               <hr>
             </div>
@@ -117,7 +180,7 @@
 
         </div>
       </div>
-      <div class="col-lg-4 mb-5">
+      <!-- <div class="col-lg-4 mb-5">
         <div class="card border-0 bg-light shadow-sm pb-2">
           <img class="card-img-top mb-2 " style="height: 185px;"
             src="https://th.bing.com/th/id/OIP.FfYK9UeVFH7EERd20yACMgHaE8?rs=1&pid=ImgDetMain" alt="" />
@@ -150,8 +213,6 @@
                 </button>
             </div>
           </div>
-
-          <!-- Table -->
           <table class="table table-striped">
             <thead>
               <tr>
@@ -168,68 +229,63 @@
                   <button class="btn btn-primary float-end "> <i class="fa fa-trash"></i> </button>
                 </td>
               </tr>
-              <!-- Add more rows as needed -->
             </tbody>
           </table>
         </div>
       </div>
       <div class="col-lg-4 mb-5">
-      <div class="card border-0 bg-light shadow-sm pb-2">
-          <img class="card-img-top mb-2" height="185px"
-            src="https://th.bing.com/th/id/OIP.whDjYofrcgnvHPcGC8-PQAAAAA?rs=1&pid=ImgDetMain" alt="" />
-          <div class="card-body text-center">
-            <h4 class="card-title">Money</h4>
-            <p class="card-text">
-              Provide the amont of money that your students needs
-            </p>
-          </div>
-          <hr>
-          <div class=" bg-transparent ">
-            <div class="input-group mb-3">
-              <input type="text" class="form-control mr-2" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
-              <div class="input-group-append">
-                <button class="btn btn-primary" type="button" id="button-addon2">
-                  <i class="fas fa-money-bill-alt"></i>  search
-                </button>
+        <div class="card border-0 bg-light shadow-sm pb-2">
+              <img class="card-img-top mb-2" height="185px" src="http://localhost:5000/uploads/schoolNeeds/{{ school.image }}" alt="{{ school.name }}"> <br/><br/>
+            <div class="card-body text-center">
+              <h4 class="card-title">Money</h4>
+              <p class="card-text">
+                Provide the amont of money that your students needs
+              </p>
+            </div>
+            <hr>
+            <div class=" bg-transparent ">
+              <div class="input-group mb-3">
+                <input type="text" class="form-control mr-2" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-primary" type="button" id="button-addon2">
+                    <i class="fas fa-money-bill-alt"></i>  search
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-          <div class=" bg-transparent ">
-            <div class="input-group mb-3">
+            <div class=" bg-transparent ">
+              <div class="input-group mb-3">
 
-              <input type="text" class="form-control mr-2" placeholder="Dt" aria-label="Search" aria-describedby="button-addon2">
-              <div class="input-group-append">
-                <button class="btn btn-primary" type="button" id="button-addon2" (click)="openDetailsModal()">
-                  <i class="fas fa-money-bill-alt"></i>  ADD
-                </button>
+                <input type="text" class="form-control mr-2" placeholder="Dt" aria-label="Search" aria-describedby="button-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-primary" type="button" id="button-addon2" (click)="openDetailsModal()">
+                    <i class="fas fa-money-bill-alt"></i>  ADD
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-
-          <!-- Table -->
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>Money</th>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Money</th>
 
 
-              </tr>
-            </thead>
-            <tbody>
-              <!-- Sample Table Data -->
-              <tr>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
 
-                <td> 200 dt</td>
-                <td>
-                  <button class="btn btn-primary float-end ">view </button>
-                </td>
-              </tr>
-              <!-- Add more rows as needed -->
-            </tbody>
-          </table>
-      </div>
-      </div>
-  <!-- Class End -->
+                  <td> 200 dt</td>
+                  <td>
+                    <button class="btn btn-primary float-end ">view </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+      </div> -->
+    </div>
+  </div>
   <div class="modal-overlay" id="modalAdd">
     <div class="modal-content">
       <span class="modal-close" (click)="onNoClick()">&times;</span>
