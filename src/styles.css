@@ -1264,3 +1264,7 @@ text-align: end;
 .NouvDetails .recentOrders table tr td:nth-child(3) {
 text-align: center;
 }
+input:focus,  textarea:focus{
+  box-shadow:  0 0 0 .25rem #d2bfee;
+  border-color: #9c76d6;
+}

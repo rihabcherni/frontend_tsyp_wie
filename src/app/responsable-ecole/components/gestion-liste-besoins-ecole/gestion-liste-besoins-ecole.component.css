@@ -31,7 +31,7 @@
     color: white;
   }
 
-  input:focus{
+  input:focus,  textarea:focus{
     box-shadow:  0 0 0 .25rem #d2bfee;
     border-color: #9c76d6;
   }
@@ -52,4 +52,21 @@ th{
 td{
   font-size: 14px;
   text-transform:capitalize;
+}
+.resModal{
+  border: 2px solid purple;
+  padding: 20px 30px;
+  background-color: rgb(233, 227, 235);
+  font-size: 18px;
+  font-weight: bold;
+}
+.resM{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+}
+.donor-detail{
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 10px;
+  margin: 0 20px;
 }

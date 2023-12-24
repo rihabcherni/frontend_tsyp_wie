@@ -1,4 +1,3 @@
- <!-- Navbar Start -->
  <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0">
   <a href="index.html" class="navbar-brand">
       <h1 class="m-0 mauve"><img src="assets/img/visiteur/logo2.png" style="height: 100px;" alt="logo"/>WieHope</h1>
@@ -13,7 +12,25 @@
           <a [routerLink]="['/our-causes']" routerLinkActive="active" class="nav-item nav-link">Our causes</a>
           <a [routerLink]="['/contact-us']" routerLinkActive="active" class="nav-item nav-link">Contact Us</a>
       </div>
-      <a [routerLink]="['be-donor']" class="btn background-mauve blanc rounded-pill px-3 d-none d-lg-block">Donate<i class="fa fa-arrow-right ms-3"></i></a>
+      <ng-container *ngIf="userId===null; else userNotLoggedIn">
+        <a [routerLink]="['be-donor']" routerLinkActive="active" class="btn background-mauve blanc rounded-pill px-3 d-none d-lg-block">
+          Be-Donor<i class="fa fa-arrow-right ms-1"></i>
+        </a>
+        <a [routerLink]="['be-ambassador']" routerLinkActive="active" class="btn background-mauve blanc rounded-pill px-3 d-none d-lg-block mx-2">
+          Be-Ambassador<i class="fa fa-arrow-right ms-1"></i></a>
+        </ng-container>
+      <ng-template #userNotLoggedIn>
+        <div class="row2">
+          <b>{{ userId.firstName }} {{ userId.lastName }}</b>
+          <div class="user" (click)="toggleDropdown()">
+              <img src="http://localhost:5000/uploads/userProfile/{{ userId.photo }}" alt="">
+          </div>
+          <div *ngIf="isDropdownOpen" class="dropdown">
+            <a (click)="logout()" class="s2"><b class="mx-3">Logout </b> <i class="fas fa-sign-out-alt"></i> </a>
+            <hr/>
+            <a (click)="changePassword()" class="s2"><b class="mx-3">Update Password </b> <i class="fas fa-key"></i> </a>
+          </div>
+        </div>
+      </ng-template>
   </div>
 </nav>
-<!-- Navbar End -->

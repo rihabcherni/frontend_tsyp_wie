@@ -16,6 +16,7 @@ import { BecomeBenefitComponent } from './components/section/become-benefit/beco
 import { BecomeAmbassadorComponent } from './components/section/become-ambassador/become-ambassador.component';
 import { FeedbacksComponent } from './components/section/feedbacks/feedbacks.component';
 import { HomeComponent } from './components/home/home.component';
+import { FormsModule } from '@angular/forms';
 
 
 import { CarouselModule } from 'ngx-owl-carousel-o';
@@ -42,6 +43,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CommonModule,
     RouterModule,
     CarouselModule,
+    FormsModule,
     BrowserAnimationsModule
   ]
 })

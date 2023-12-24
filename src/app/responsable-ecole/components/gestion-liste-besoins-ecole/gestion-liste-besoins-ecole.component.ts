@@ -28,7 +28,6 @@ export class GestionListeBesoinsEcoleComponent {
     this.getSchoolDetails();
     this.newSchool = {
       _id: this.authService.getSchoolId() || "",
-      DetailsNeeds: this.school.DetailsNeeds || { items: [] }
     };
   }
   updateSchool(): void {
@@ -36,7 +35,7 @@ export class GestionListeBesoinsEcoleComponent {
     this.schoolService.updateSchool(id, this.newSchool).subscribe(
       (response: any) => {
         console.log('School mis à jour avec succès :', response);
-        this.authService.setUser(this.newSchool);
+        this.authService.setSchool(this.newSchool);
         alert("Your school update successfuly");
       },
       (error: any) => {
@@ -46,14 +45,15 @@ export class GestionListeBesoinsEcoleComponent {
     );
   }
 
+  ItemsNeeds: string = '';
   typeNeeds: string = '';
   quantity: string = '';
   addItemsSchool(_id: string, type: string, quantity: string): void {
     this.typeNeeds = type;
     this.quantity = quantity;
-
     this.newSchool.DetailsNeeds = this.school.DetailsNeeds.map((details:any) => {
       if (details._id === _id) {
+        this.ItemsNeeds=details.nameNeeds ;
         if (!details.items) {
           details.items = [];
         }
@@ -62,8 +62,7 @@ export class GestionListeBesoinsEcoleComponent {
         this.schoolService.updateSchool(schoolId, this.school).subscribe(
           (response: any) => {
             console.log('School mis à jour avec succès :', response);
-            this.authService.setUser(this.school);
-            alert("Your school updated successfully");
+            this.authService.setSchool(this.school);
           },
           (error: any) => {
             console.error('Erreur lors de la mise à jour du school :', error);
@@ -73,13 +72,34 @@ export class GestionListeBesoinsEcoleComponent {
 
       return details;
     });
-
     this.openDetailsModal();
+  }
+
+  deleteItemsSchool(detailNeed_id: string, itemId: string): void {
+    this.newSchool.DetailsNeeds = this.school.DetailsNeeds.map((details: any) => {
+      if (details._id === detailNeed_id) {
+        details.items = details.items.filter((i: any) => i._id !== itemId);
+      }
+      return details;
+    });
+    this.school.DetailsNeeds=this.newSchool.DetailsNeeds;
+    const schoolId = this.authService.getSchoolId() || "";
+    this.schoolService.updateSchool(schoolId, this.school).subscribe(
+      (response: any) => {
+        console.log('School mis à jour avec succès :', response);
+        alert('Items deleted successfuly');
+        this.authService.setSchool(this.school);
+      },
+      (error: any) => {
+        console.error('Erreur lors de la mise à jour du school :', error);
+      }
+    );
   }
 
   clearInputFields(): void {
     this.typeNeeds = '';
     this.quantity = '';
+    this.ItemsNeeds = '';
   }
   openDetailsModal(): void {
     const modal = document.getElementById('modalAdd');
