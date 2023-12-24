@@ -28,7 +28,7 @@ export class GestionListeBesoinsEcoleComponent {
     this.getSchoolDetails();
     this.newSchool = {
       _id: this.authService.getSchoolId() || "",
-      DetailsNeeds: this.school.DetailsNeeds
+      DetailsNeeds: this.school.DetailsNeeds || { items: [] }
     };
   }
   updateSchool(): void {
@@ -48,13 +48,35 @@ export class GestionListeBesoinsEcoleComponent {
 
   typeNeeds: string = '';
   quantity: string = '';
-
-  addItemsSchool(type: string, quantity: string): void {
+  addItemsSchool(_id: string, type: string, quantity: string): void {
     this.typeNeeds = type;
     this.quantity = quantity;
-    this.school.DetailsNeeds.items.push({ type: this.typeNeeds, nimber: this.quantity });
+
+    this.newSchool.DetailsNeeds = this.school.DetailsNeeds.map((details:any) => {
+      if (details._id === _id) {
+        if (!details.items) {
+          details.items = [];
+        }
+        details.items.push({ type: this.typeNeeds, number: this.quantity });
+        const schoolId = this.authService.getSchoolId() || "";
+        this.schoolService.updateSchool(schoolId, this.school).subscribe(
+          (response: any) => {
+            console.log('School mis à jour avec succès :', response);
+            this.authService.setUser(this.school);
+            alert("Your school updated successfully");
+          },
+          (error: any) => {
+            console.error('Erreur lors de la mise à jour du school :', error);
+          }
+        );
+      }
+
+      return details;
+    });
+
     this.openDetailsModal();
   }
+
   clearInputFields(): void {
     this.typeNeeds = '';
     this.quantity = '';
