@@ -31,6 +31,7 @@ export class SideBarComponent {
     { routerLink: '/admin/donation', iconClass:"fas fa-hand-holding-usd" , title: 'Donations' },
     { routerLink: '/admin/donors', iconClass: 'fas fa-users-cog', title: 'Donors' },
     { routerLink: '/admin/ambassador-management', iconClass: 'fas fa-users-cog', title: 'Ambassadors' },
+    { routerLink: '/admin/contact-us', iconClass: 'fas fa-address-book ', title: 'Contact Us' },
     { routerLink: '/admin/profil', iconClass: 'fas fa-user-circle', title: 'Profil' },
     { routerLink: '/', iconClass: 'fas fa-sign-out-alt', title: 'Sign Out' }
   ];

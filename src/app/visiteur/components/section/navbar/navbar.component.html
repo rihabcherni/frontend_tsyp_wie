@@ -14,10 +14,10 @@
       </div>
       <ng-container *ngIf="userId===null; else userNotLoggedIn">
         <a [routerLink]="['be-donor']" routerLinkActive="active" class="btn background-mauve blanc rounded-pill px-3 d-none d-lg-block">
-          Be-Donor<i class="fa fa-arrow-right ms-1"></i>
+          Donation<i class="fa fa-arrow-right ms-1"></i>
         </a>
-        <a [routerLink]="['be-ambassador']" routerLinkActive="active" class="btn background-mauve blanc rounded-pill px-3 d-none d-lg-block mx-2">
-          Be-Ambassador<i class="fa fa-arrow-right ms-1"></i></a>
+        <a [routerLink]="['login']" routerLinkActive="active" class="btn background-mauve blanc rounded-pill px-3 d-none d-lg-block mx-2">
+        Login<i class="fa fa-arrow-right ms-1"></i></a>
         </ng-container>
       <ng-template #userNotLoggedIn>
         <div class="row2">
