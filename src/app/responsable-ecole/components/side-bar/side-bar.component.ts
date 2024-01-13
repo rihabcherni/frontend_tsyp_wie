@@ -30,7 +30,7 @@ export class SideBarComponent {
   sidebarLinks = [
     { routerLink: '/ambassador', iconClass: 'fas fa-tachometer-alt', title: 'Dashboard' },
     { routerLink: '/ambassador/school-management', iconClass: 'fas fa-book', title: 'school managements' },
-    { routerLink: '/ambassador/donors', iconClass: 'fas fa-users-cog', title: 'Donors' },
+    // { routerLink: '/ambassador/donors', iconClass: 'fas fa-users-cog', title: 'Donors' },
     { routerLink: '/ambassador/donation', iconClass:"fas fa-hand-holding-usd" , title: 'Donations' },
     { routerLink: '/ambassador/profil', iconClass: 'fas fa-user-circle', title: 'Profil' },
     { routerLink: '/', iconClass: 'fas fa-sign-out-alt', title: 'Sign Out' }
